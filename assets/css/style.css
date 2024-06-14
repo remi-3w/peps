@@ -1,0 +1,481 @@
+@font-face {
+ font-family: Bruno ;
+ src: local("BrunoAceRegular.ttf") format("ttf");    
+}
+
+*{
+   margin: 0;
+   padding: 0 ;
+}
+
+.image-hero{
+   width:auto;
+   height: 30vw;
+   object-fit: cover; 
+   margin: auto;
+}
+.info-bonus{
+   font-size: 1rem;
+}
+
+.card-body{
+   font-size: 6vw;
+}
+.chat{   
+   height: 650px;
+   background-color:#7BB4F6;
+   color :#020730;
+}
+.iconchat{
+   height: 30px;
+   width: 30px;
+}
+
+textarea{
+ height: 100px;
+}
+.sticky{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: #020730;
+}
+.subs{
+   
+   filter: brightness(120%);
+ }
+
+.list-item{
+   list-style: none;
+}
+
+
+body{   
+   width: 100%;
+   background: #020730;
+   padding:5px;
+   background-image: url("/assets/img/feminine-world-cup-trophy.png"); 
+   background-repeat: no-repeat;  
+   background-position: 70% top;   
+  
+}.redlight{
+   color: #E87575;
+}
+h2{
+   color: #fff;
+   
+}
+
+label{
+   color: #fff;
+   text-align: center;
+}
+.text-hero{
+  color: rgba(2, 7, 48, 1);
+  line-height : 2em;
+}
+.info-group{
+   font-size: 80px;
+}
+#linkhome{
+   display: flex;
+   align-items: center;
+   color: rgba(0, 33, 72, 1);
+   font-size: 40px;
+   text-decoration: none;
+}
+.ball{
+   height: 20px;
+   width: auto;
+
+}
+
+.hero-icon-ranking {
+	width: 144px;
+	height: 164px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	display: inline-block;
+	background-image: url("/assets/img/icon-park-outline_ranking.png");
+}
+.hero-logo{
+   display: flex;  
+   background: rgba(123, 180, 246, 1);
+   height: 60px;
+   width: auto;  
+}
+.hero{
+      margin-top: 2%;
+}
+/* .btn-subscribe{
+   height: 120px;
+   background: rgb(255, 255, 255);
+   color: rgba(199, 7, 7, 1);
+   margin-top: 107px;  
+   padding: 10px;
+   border: none;
+   font-size: 60px; 
+} */
+.cont,form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: auto;
+   padding: 0;
+}
+
+.card{
+ background: #002148;
+}
+.card-img-top{
+   height:6vw;
+   width:6vw;
+   background: #002148;
+}
+
+.alert-primary{
+   background: rgba(0, 33, 72, 1); 
+}
+.currentDate, .alert-primary{
+   color: #3FD03A;
+}
+
+.lateralnav{
+background-color: #002148;
+color:rgba(123, 180, 246, 1);
+}
+.lateralnav a{
+   color: rgb(239, 239, 240);   
+}
+.nav-item:hover{
+   background-color: #b8cbe2;
+}
+
+.divider-menu{
+   width: 100%;
+   height: 2px;
+   color: rgba(123, 180, 246, 1);
+   opacity: 1;
+}
+
+.hero-ranking{
+   background-color: rgba(0, 33, 72, 1);
+}
+.hero-subscribing{
+   background-color: rgba(0, 33, 72, 1);  
+  
+   padding: 20px;  
+   font-size: 40px;
+   color:#fff;  
+}
+
+.info{
+   border-radius: 10px;
+}
+
+.form-group{
+   width: 800px;
+}
+.form-control-lg::placeholder{
+    color:#E87575;
+    font-style: italic;
+}
+
+th{
+   color: #e6e4e4;
+   font-size: 20px;
+}
+tr{
+   color:#7bb4f6;
+   background-color: rgba(0, 33, 72, 1);
+}
+
+tr:hover{
+   color: #8ad387;
+}
+
+tr:nth-child(odd) {
+   background-color: rgb(1, 41, 91);
+
+}
+.tablehead{
+   /* background: rgb(0,33,72) !important; */
+background: linear-gradient(0deg, rgba(1,41,91,1) 0%, rgba(2,7,48,1) 100%);
+   /* background-color: rgb(220, 222, 221) !important; */
+}
+.bruno{
+font-family: 'Bruno Ace', sans-serif;
+text-align: center;                
+}
+
+.fontsaira{
+font-family: 'Saira', sans-serif;
+}
+
+
+.btn-validate{
+   height: 120px;
+   width: 350px;
+   background: rgb(255, 255, 255);
+   color: rgba(199, 7, 7, 1);
+   margin-top: 20px;  
+   padding: 10px;
+   border: none;
+   font-size: 60px;
+   display: flex;   
+   align-items: center;
+   text-align: center; 
+}
+
+.dice{
+  width: 50px;
+  padding: 6px; 
+}
+
+.btn-play{
+   font-family: 'Saira Condensed', sans-serif;
+   align-items: center;  
+   height: auto;
+   margin: auto;
+   padding: 0;
+   background: #020730;
+   border: 1px solid #7BB4F6;
+   color:#7BB4F6; 
+   font-size: 1rem; 
+}
+.btnrealscore{
+   background: #f9b7f7;
+   border: 5px solid #48046f;
+   color:#400763; 
+}
+.imglogin{
+   height: 50px;
+   width: auto;
+}
+.linklogin{
+   font-size: 40px; 
+}
+
+.linktocreate{
+   font-size: 16px;
+
+}
+
+#rank2{
+height:30%;
+background-color:#E87575;
+
+}
+#rank1{
+height:40%;
+background-color:#7BB4F6
+}
+#rank0{
+height:50%;
+background-color:#A8EE87
+}
+
+.hero-text{
+   background: rgba(123, 180, 246, 1);
+   color: rgba(2, 7, 48, 1); 
+   height:auto;
+   /* width: 100%;   */   
+   font-size: 20px;   
+}
+
+#nummatch{
+   display: none;
+
+}
+
+.fade-out {
+	-webkit-animation: fade-out 2s ease-out both;
+	        animation: fade-out 2s ease-out both;
+}
+
+.modal-header{
+   color: #fff;
+   background-color: rgb(13, 93, 190);
+   border-bottom: none;
+
+}
+.modal-body{
+   color: #fff;
+   background-color: rgb(54, 136, 236);
+   margin: 0;
+   padding: 0;
+   
+}
+.input{
+
+}
+.modal-footer{
+   color: #fff;
+   background-color: rgb(21, 103, 204);
+   border-top: none;
+}
+
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-8-30 22:54:31
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation fade-out
+ * ----------------------------------------
+ */
+ @-webkit-keyframes fade-out {
+   0% {
+     opacity: 1;
+   }
+   50%{
+      opacity: 1;
+    }
+   100% {
+     opacity: 0;
+   }
+ }
+ @keyframes fade-out {
+   0% {
+     opacity: 1;
+   }
+   50%{
+      opacity: 1;
+    }
+   100% {
+     opacity: 0;
+   }
+ }
+ 
+ 
+
+
+
+
+
+
+/* Mediaquerie */
+/* écran téléphone portrait */
+/* @media (max-width: 575.98px)  */
+@media (max-width: 590px){
+
+
+
+.btn-play{ 
+   height: auto;
+   border: 1px solid #7BB4F6;
+   font-size: 10px;
+   padding: 1px;
+   margin:2px; 
+}
+
+#rank2{
+height:40%;
+}
+#rank1{
+height:50%;
+}
+#rank0{
+height:70%;
+}
+
+.dice{
+  display: none;
+  width: auto;
+  padding: 2px;
+  font-size: 16px; 
+}
+.imglogin{
+   height: 50px;
+   width: auto;
+}
+
+
+
+.logowc2022{
+   object-fit: cover;
+   width: 100%;
+   height: auto;
+   margin: auto;
+  
+}
+.hero-text{ 
+   height:auto;
+   /* width: 100%;   */
+   margin-top: 20px;
+   font-size: 20px;   
+}
+h3{
+   font-size: 40px;
+}
+
+.info{
+   border-radius: 10px;   
+}
+
+.hero-logo{  
+ height: 60px;    
+}
+.bruno{
+   font-size: 40px;
+}
+
+.currentDate{
+   font-size: 0.5rem;
+}
+.row{
+ --bs-gutter-x: 0;
+}
+
+
+.linklogin{ 
+   font-size: 10px;
+}
+#linkhome{ 
+   font-size: 40px;
+}
+tr{
+   padding-left: 5px;
+  
+}
+.table, .table>:not(caption)>*>*{     
+   font-size: 8px;
+   padding : 0;
+}
+.mdate{
+   font-size: 8px;
+}
+.close-game{
+   font-size: 6px;
+}
+td{
+   flex-wrap: nowrap;
+ 
+}
+.hero-ranking{
+   
+   font-size: 10px;   
+}
+th{
+
+   font-size: 16px;
+}
+.hero-subscribing{     
+
+   padding: 10px;  
+   font-size: 12px;
+   color:#fff;  
+}
+.btn-validate{
+   height: auto;
+   width: 10%;
+   font-size: 20px;  
+}
+
+
+
+   }

@@ -1,0 +1,158 @@
+
+body{   
+   margin: 25px 135px 85px 107px;
+   background: rgba(2, 7, 48, 1);
+ 
+ 
+}.redlight{
+   color: #E87575;
+} 
+p, label{
+   color: #fff;
+   text-align: center;
+}
+.info-group{
+   font-size: 80px;
+}
+#linkhome{
+
+   text-decoration: none;
+}
+.cont,form{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: auto;
+   padding: 0;
+}
+
+.card-body{
+   font-size: 60px;
+}
+.card-text{
+   font-size: 60px;
+}
+
+.alert-primary{
+   background: rgba(0, 33, 72, 1); 
+}
+.currentDate, .alert-primary{
+   color: rgba(77, 219, 135, 1);
+}
+.hero{
+      margin-top: 2%;
+
+}
+.hero-text{
+   background: rgba(123, 180, 246, 1);
+   color: rgba(47, 60, 75, 1);
+   height:425px;
+   width: 865px;
+   padding: 30px;
+   font-size: 40px;   
+}
+.hero-logo{
+   display: flex;
+   background: rgba(123, 180, 246, 1);
+   color: rgba(0, 33, 72, 1);
+   height:200px;
+   width: 380px;
+   align-items: center;
+   justify-content: center;
+   margin-right: 30px;
+      
+}
+h3{
+   font-size: 80px;
+}
+.hero-ranking{
+   display: flex;
+   flex-direction: row;
+   background-color: rgba(0, 33, 72, 1);
+   min-height: 425px;
+   min-width: auto;
+   padding: 10px;  
+   font-size: 40px;   
+}
+.hero-subscribing{
+   background-color: rgba(0, 33, 72, 1);  
+   width: 1140px;
+   padding: 20px;  
+   font-size: 40px;
+   color:#fff;  
+}
+
+.info{
+   border-radius: 10 px;
+}
+
+.form-group{
+   width: 800px;
+}
+.form-control-lg::placeholder{
+    color:#E87575;
+    font-style: italic;
+}
+.table{
+   color:#7bb4f6;  
+   font-size: 60px;
+}
+th{
+   color: #E87575;
+   font-size: 20px;
+}
+
+.border-peps{
+ border-radius: 60px 0 60px 0;
+}
+
+
+.fontsaira{
+font-family: 'Saira Condensed', sans-serif;
+
+}
+
+
+.logowc2022{
+   object-fit: cover;
+   width: 728px;
+   height: 425px;
+   margin-right: 55px;
+  
+}
+.btn-validate{
+   height: 120px;
+   width: 350px;
+   background: rgb(255, 255, 255);
+   color: rgba(199, 7, 7, 1);
+   margin-top: 20px;  
+   padding: 10px;
+   border: none;
+   font-size: 60px;
+   display: flex;   
+   align-items: center;
+   text-align: center; 
+}
+.btn-subscribe{
+   height: 120px;
+   width: 890px;
+   background: rgb(255, 255, 255);
+   color: rgba(199, 7, 7, 1);
+   margin-top: 107px;
+   margin-left: auto;
+   margin-right: auto;
+   padding: 10px;
+   border: none;
+   font-size: 60px; 
+}
+.btn-play{
+   font-family: 'Saira Condensed', sans-serif;  
+   height: auto;
+   margin: 0;
+   padding: 0;
+   width: 240px;
+   background: #020730;
+   border: 5px solid #7BB4F6;
+   color:#7BB4F6; 
+   font-size: 40px; 
+}

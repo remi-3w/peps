@@ -1,0 +1,31 @@
+body{
+    background-color: rgb(3, 3, 18);
+}
+
+#my-chart.column {
+  display: flex;
+  font-size: 0.5rem;
+  width: 18rem;
+  height: 15rem;
+  padding: 5px;
+  margin: 0; 
+  --size: calc( 60 / 100 );
+}
+
+#my-chart {
+  --color: linear-gradient(rgba(2, 7, 48, 1),rgba(123, 180, 246, 1));
+}
+.medal{
+    font-size: 1rem;
+}
+tr{
+  width: 1rem;
+}
+
+.data{
+font-size: 1rem;
+color:rgba(2, 7, 48, 1);
+}
+
+
+

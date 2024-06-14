@@ -1,0 +1,31 @@
+[{
+    "username": null,
+    "email": "popo@popo.cpm",
+    "password": "123",
+    "pts": 0
+}, {
+    "username": "delphine",
+    "email": "contact@remimouton.com",
+    "password": "123",
+    "pts": 4000
+}, {
+    "username": "Alan le moche",
+    "email": "contact@remimouton.com",
+    "password": "123",
+    "pts": 10000
+}, {
+    "username": "Remi",
+    "email": "contact@remimouton.com",
+    "password": "1234",
+    "pts": 0
+}, {
+    "username": "",
+    "email": "",
+    "password": "",
+    "pts": 0
+}, {
+    "username": "",
+    "email": "",
+    "password": "",
+    "pts": 0
+}]

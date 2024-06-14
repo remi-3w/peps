@@ -1,0 +1,46 @@
+Dev:
+    Login.php L51 : 
+        header('Location: ' . '/template/home.php');
+
+    Laterlanavbar : 
+        href="../template/rank.php"
+        href="../template/home.php"
+        href="../template/play.php"
+        href="../template/gamesrules.php"
+        
+    /template/play.php:
+        ../template/functions/enregistrerScore.php (ligne 78)
+
+    /template/functions/enregistrerScore.php:
+        header('Location: ' . '../play.php'); (ligne50)
+
+    /template/realScore.php:
+    "<form id='Form' action='../template/functions/registerRealScore.php' method='POST'>"; (ligne52)
+    
+    /functions/compareMatchsToScore.php:
+    $db = new PDO('sqlite:db.sqlite');
+
+# **************************************************************
+
+
+Prod:
+    Login.php L51 : 
+        header('Location: ' . '/peps/template/home.php');
+        
+    Laterlanavbar:
+        href="/template/rank.php"
+        href="/template/home.php"
+        href="/template/play.php"
+        href="peps/template/gamerules.php"
+       
+    /template/play.php:
+        /peps/template/functions/enregistrerScore.php (ligne 78)
+
+    /template/functions/enregistrerScore.php:
+        header('Location: ' . '/peps/template/play.php'); (ligne50)
+
+    /template/realScore.php:
+    "<form id='Form' action='/peps/template/functions/registerRealScore.php' method='POST'>"; (ligne52)
+
+    /functions/compareMatchsToScore.php:
+    $db = new PDO('sqlite:..\db.sqlite');
