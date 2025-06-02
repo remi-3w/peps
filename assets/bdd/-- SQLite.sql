@@ -22,6 +22,7 @@ DROP TABLE IF EXISTS `matchs_users`;
     ALTER TABLE users ADD COLUMN score INTEGER NOT NULL DEFAULT 0;
     ALTER TABLE users ADD COLUMN flag TEXT DEFAULT null;
     ALTER TABLE users ADD COLUMN picture TEXT DEFAULT fixture;
+    ALTER TABLE users ADD COLUMN is_admin INTEGER DEFAULT 0;
 
 -- ****Update data ****
     UPDATE users SET username = "Guillaume" WHERE id = 10;

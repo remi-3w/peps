@@ -1,5 +1,12 @@
 <?php
 include('header.php');
+
+// Check if user is admin
+if (!isset($_SESSION['user']['is_admin']) || $_SESSION['user']['is_admin'] != 1) {
+    header('Location: home.php');
+    exit;
+}
+
 include('../template/functions/DateToFrench.php');
 include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
 

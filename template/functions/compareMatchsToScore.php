@@ -4,6 +4,9 @@ try {
     $db = new PDO('sqlite:db.sqlite');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
+    // Reset all user scores to 0 before recalculating
+    $db->query('UPDATE users SET score = 0');
+
     // Sélectionnez les matchs et les utilisateurs associés
     $sql = "SELECT * FROM matchs AS m INNER JOIN matchs_users AS mu ON m.id = mu.match_id";
     $matchs = $db->query($sql);
@@ -30,16 +33,12 @@ try {
         if ($scoreteam1user == $realscoreteam1 && $scoreteam2user == $realscoreteam2) {
             $score += 50;
         }
-
-        // Test2 : Trouver l'équipe gagnante ou un match nul
-        if (($realscoreteam1 == $realscoreteam2) && ($scoreteam1user == $scoreteam2user)) {
-            $score += 30;
-        } elseif (($scoreteam2user - $scoreteam1user) * ($realscoreteam2 - $realscoreteam1) > 0) {
+        // Test2 : Si pas score parfait, trouver l'équipe gagnante ou un match nul
+        else if ((($realscoreteam1 == $realscoreteam2) && ($scoreteam1user == $scoreteam2user)) || (($scoreteam2user - $scoreteam1user) * ($realscoreteam2 - $realscoreteam1) > 0)) {
             $score += 30;
         }
-
-        // Test3 : Nombre de buts marqués
-        if ($scoreteam1user + $scoreteam2user == $realscoreteam1 + $realscoreteam2) {
+        // Test3 : Si ni score parfait, ni bonne équipe, vérifier Nombre de buts marqués
+        else if ($scoreteam1user + $scoreteam2user == $realscoreteam1 + $realscoreteam2) {
             $score += 20;
         }
 

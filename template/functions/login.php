@@ -28,7 +28,7 @@ try{
           $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);
           // die($password);
  
-          $sql = 'SELECT * FROM users WHERE email = :email';
+          $sql = 'SELECT id, username, email, password, is_admin FROM users WHERE email = :email';
           $stmt = $db->prepare($sql);
           $stmt->bindValue(':email', $_POST["email"], PDO::PARAM_STR);
           $stmt->execute();
@@ -47,7 +47,8 @@ try{
           $_SESSION['user'] = [
                "id" => $user["id"],
                "pseudo" => $user["username"],
-               "email" => $user["email"]
+               "email" => $user["email"],
+               "is_admin" => $user["is_admin"]
           ];
      
           header('Location: ' . '/template/home.php');             
