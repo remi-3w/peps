@@ -7,7 +7,7 @@ FROM php:8.2-apache
 # intl extension often needs libicu-dev, but official php images handle common intl deps well.
 # If intl fails later, we might need to add libicu-dev here.
 RUN apt-get update && \
-    apt-get install -y libsqlite3-dev sqlite3 && \
+    apt-get install -y libsqlite3-dev sqlite3 libicu-dev && \
     rm -rf /var/lib/apt/lists/*
 
 # Install necessary PHP extensions
