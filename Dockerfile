@@ -1,11 +1,19 @@
 # Use an official PHP image with Apache
 FROM php:8.2-apache
 
+# Install system dependencies for PHP extensions
+# libsqlite3-dev is needed for pdo_sqlite
+# sqlite3 is the command-line tool (kept from previous version)
+# intl extension often needs libicu-dev, but official php images handle common intl deps well.
+# If intl fails later, we might need to add libicu-dev here.
+RUN apt-get update && \
+    apt-get install -y libsqlite3-dev sqlite3 && \
+    rm -rf /var/lib/apt/lists/*
+
 # Install necessary PHP extensions
 # pdo_sqlite for SQLite database access
 # intl for IntlDateFormatter
 RUN docker-php-ext-install pdo_sqlite intl
-RUN apt-get update && apt-get install -y sqlite3 && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory in the container
 WORKDIR /var/www/html
