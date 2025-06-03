@@ -9,15 +9,5 @@ services:
     ports:
       - "8080:80" # Map port 8080 on the host to port 80 in the container
     volumes:
-      - peps_sqlite_data:/var/www/html/template/functions
-      # This volume ensures that the contents of template/functions,
-      # including db.sqlite, are persisted.
-      # If you want to map to a specific host path instead of a named volume,
-      # you could use something like:
-      # - ./data/sqlite:/var/www/html/template/functions
-      # Make sure the host directory (e.g., ./data/sqlite) exists if you use this.
+      - .:/var/www/html # Map current directory to web root in container
     restart: unless-stopped # Restart policy for the container
-
-volumes:
-  peps_sqlite_data: # Defines the named volume for SQLite data persistence
-    driver: local # Specifies the local driver for the volume (default)

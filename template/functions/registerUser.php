@@ -1,5 +1,5 @@
 <?php
-include_once('../header.php');
+include_once(dirname(__FILE__) . 'header.php');
 try{	
 		$db= new PDO('sqlite:db.sqlite');
 	} 
@@ -19,7 +19,6 @@ try{
           $password = password_hash($_POST['password'], PASSWORD_ARGON2ID);  
           $sql = 'INSERT INTO users (username, email, password ) VALUES (?, ?, ?)';
           $stmt = $db->prepare($sql);
-          
           $stmt->execute(array($name, $email, $password));
           header('Location: ' . '/peps/template/connexion.php');             
           };
