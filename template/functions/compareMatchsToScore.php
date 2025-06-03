@@ -1,7 +1,7 @@
 <?php
 try {
     // Connexion à la base de données SQLite
-    $db = new PDO('sqlite:db.sqlite');
+    $db = new PDO('sqlite:' . __DIR__ . '/db.sqlite');
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Reset all user scores to 0 before recalculating

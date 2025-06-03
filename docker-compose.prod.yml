@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: peps_app_prod # Different container name for production
+    ports:
+      - "80:80" # Maps host port 80 to container port 80 for production
+                # Or use another port like 8000:80 if port 80 is taken on the host.
+    volumes:
+      # Persist the template/functions directory (containing db.sqlite)
+      # using a named volume in production.
+      - peps_sqlite_data_prod:/var/www/html/template/functions
+    restart: always # Restart policy suitable for production
+
+volumes:
+  peps_sqlite_data_prod: # Defines the named volume for SQLite data persistence in production
+    driver: local
