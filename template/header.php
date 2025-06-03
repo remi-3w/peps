@@ -2,9 +2,9 @@
 session_start();
 include_once(dirname(__FILE__) . '/functions/connexion.php');
 
-$nowFormatFr = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
-$now = $nowFormatFr->format(time()); 
-$timestampnow = datefmt_parse($nowFormatFr, $now); 
+//$nowFormatFr = new IntlDateFormatter('fr_FR', IntlDateFormatter::FULL, IntlDateFormatter::NONE);
+//$now = $nowFormatFr->format(time()); 
+//$timestampnow = datefmt_parse($nowFormatFr, $now);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -34,7 +34,7 @@ $timestampnow = datefmt_parse($nowFormatFr, $now);
 <div class="d-flex justify-content-around col-12 py-5">
         <div class="row col-lg-4 col-xl-4 hero-logo border-peps">
             <a href="./home.php" id="linkhome" class="bruno col-lg-12 col-12">
-                PEP'S
+                PEP'S by jules
             </a>
         </div>
         <div class="col-xl-2 row">
@@ -49,8 +49,8 @@ $timestampnow = datefmt_parse($nowFormatFr, $now);
                 $stmt->execute();
                 $users = $stmt->fetchAll(PDO::FETCH_ASSOC);          
                 $id = $_SESSION['user']['id'];              
-                $picture = $users[$id - 1]['picture'];
-                $firstname = $users[$id]['username'];            
+                $picture = $users[$id - 1]['picture'];                
+                //$firstname = $users[$id]['username'];            
                     if(($picture) !== "fixture"){
                     $avatar = "../assets/img/userfile/". $_SESSION['user']['pseudo'] ."/" . $picture; // $filename = la donnée en BDD
                     

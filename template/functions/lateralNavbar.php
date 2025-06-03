@@ -11,9 +11,9 @@ FROM matchs_users AS mu ORDER BY id ASC';
     <div class="row flex-nowrap ">
         <div class=" lateralnav col-2 col-md-2 col-xl-2 px-sm-2 px-0">
             <div class="sticky d-flex lateralnav flex-column align-items-center align-items-sm-start px-1 pt-2  min-vh-100">
-                <div class="col-12 col-lg-12 col-xl-12">
-                    <p class="currentDate fontsaira fw-bold text-center m-auto "><?php print_r($now); ?></p1>
-                </div>
+                <!-- <div class="col-12 col-lg-12 col-xl-12">
+                    <p class="currentDate fontsaira fw-bold text-center m-auto "><?php //print_r($now); ?></p1>
+                </div> -->
                 <ul class="nav nav-pills nav-fill flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
                     <p class="d-flex align-items-center pb-3 mb-md-0 me-md-auto">
                         <span class="fs-5 d-none d-sm-inline">Pages</span>
