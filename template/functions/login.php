@@ -2,7 +2,7 @@
 // include_once(dirname(__FILE__) . '../header.php');
 try{
  	 	
-		$db= new PDO('sqlite:db.sqlite');
+		$db= new PDO('sqlite:' . __DIR__ . '/db.sqlite');
 		
 		//return $db;
 

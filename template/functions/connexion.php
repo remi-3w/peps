@@ -1,6 +1,6 @@
 <?php
 		try{
-		$db= new PDO('sqlite:functions/db.sqlite');
+		$db= new PDO('sqlite:' . __DIR__ . '/db.sqlite');
 	} 
 		catch (PDOException $e) 
 	{
