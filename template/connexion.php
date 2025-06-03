@@ -28,7 +28,7 @@
                 <button type="submit" class="btn btn-outline-light btn-lg px-5">Valider ✔</button>
               </form>
               <div>
-                <p id="linktocreate" class=" linktocreate mt-3">Pas encore de compte? <a href="subscribe.php" class="text-white-50 fw-bold">Créer</a></p>
+                <p id="linktocreate" class=" linktocreate mt-3">QUOIIII? Pas encore de compte? <a href="subscribe.php" class="text-white-50 fw-bold">Créer</a></p>
               </div>
             </div>
           </div>
