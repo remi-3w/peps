@@ -24,44 +24,65 @@ if ($_SESSION)
                 </div>
         </div>
 
+    <div class="top-players-podium row text-center mt-4 mb-4">
+        <?php if (isset($users[1])): // 2nd Place - Visually Left ?>
+            <?php
+                $username1 = $users[1]['username'];
+                $picture1 = $users[1]['picture'];
+                $avatar1_path = '../assets/img/fixture.png';
+                if ($picture1 !== 'fixture' && !empty($picture1)) {
+                    $avatar1_path = '../assets/img/userfile/' . rawurlencode($username1) . '/' . rawurlencode($picture1);
+                }
+            ?>
+            <div class="col-md-4 order-md-1 order-2 player-podium-slot">
+                <div class="player-card podium-second">
+                    <img src="<?php echo htmlspecialchars($avatar1_path); ?>" alt="<?php echo htmlspecialchars($username1); ?> Avatar" class="player-avatar img-fluid rounded-circle mx-auto d-block mb-2">
+                    <h5 class="player-name"><?php echo htmlspecialchars($username1); ?> 🥈</h5>
+                    <p class="player-score">Score: <?php echo htmlspecialchars($users[1]['score']); ?></p>
+                    <a href="showpronoplayer.php?ID=<?php echo $users[1]['id']; ?>" class="btn btn-sm btn-outline-light">Voir Pronos</a>
+                </div>
+            </div>
+        <?php endif; ?>
 
-	        <table id="my-chart" class="charts-css data-spacing-10 column col-12">
-                <thead>
-                    <tr class="tablehead">
-                        <th scope="col">#</th>
-                        <th scope="col">Nom</th>
-                        <th scope="col">Points</th>
-                    </tr>
-                </thead>
-                <tbody class="text-white">
-                    <tr>
-                        <th scope="row">2</th>                       
-                        <td class ="row graph">
-                            <a class="text-white d-flex justify-content-center" href="http://peps/template/showpronoplayer.php"><?php echo $users[1]['username'];?></a> 
-                               <span class="medal d-flex justify-content-center">🥈</span>
-                               <span class="data d-flex justify-content-center">200 </span>
-                        </td>                        
-                    </tr>
-                    <tr>
-                        <th scope="row"> 1 </th>                        
-                        <td class="row" style="--size: calc( 80 / 100 );">
-                            <a class="text-white d-flex justify-content-center" href="http://peps/template/showpronoplayer.php"><?php echo $users[0]['username']; ?></a>
-                            <span class="medal d-flex justify-content-center">🥇</span>
-                            <span class="data d-flex justify-content-center"> 400 </span>                              
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <th scope="row"> 3 </th>
-                        <td class="row" style="--size: calc( 40 / 100 );">
-                            <a class="text-white d-flex justify-content-center" href="http://peps/template/showpronoplayer.php"><?php echo $users[2]['username'];?></a>
-                              <span class="medal d-flex justify-content-center">🥉</span>
-                              <span class="data d-flex justify-content-center"> 200 </span>
-                        </td>                        
-                    </tr>
-                </tbody>
-            </table>                    
-        </div>    </div>
+        <?php if (isset($users[0])): // 1st Place - Visually Center ?>
+            <?php
+                $username0 = $users[0]['username'];
+                $picture0 = $users[0]['picture'];
+                $avatar0_path = '../assets/img/fixture.png';
+                if ($picture0 !== 'fixture' && !empty($picture0)) {
+                    $avatar0_path = '../assets/img/userfile/' . rawurlencode($username0) . '/' . rawurlencode($picture0);
+                }
+            ?>
+            <div class="col-md-4 order-md-2 order-1 player-podium-slot">
+                <div class="player-card podium-first">
+                    <img src="<?php echo htmlspecialchars($avatar0_path); ?>" alt="<?php echo htmlspecialchars($username0); ?> Avatar" class="player-avatar img-fluid rounded-circle mx-auto d-block mb-2">
+                    <h5 class="player-name"><?php echo htmlspecialchars($username0); ?> 🥇</h5>
+                    <p class="player-score">Score: <?php echo htmlspecialchars($users[0]['score']); ?></p>
+                    <a href="showpronoplayer.php?ID=<?php echo $users[0]['id']; ?>" class="btn btn-sm btn-outline-light">Voir Pronos</a>
+                </div>
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($users[2])): // 3rd Place - Visually Right ?>
+            <?php
+                $username2 = $users[2]['username'];
+                $picture2 = $users[2]['picture'];
+                $avatar2_path = '../assets/img/fixture.png';
+                if ($picture2 !== 'fixture' && !empty($picture2)) {
+                    $avatar2_path = '../assets/img/userfile/' . rawurlencode($username2) . '/' . rawurlencode($picture2);
+                }
+            ?>
+            <div class="col-md-4 order-md-3 order-3 player-podium-slot">
+                <div class="player-card podium-third">
+                    <img src="<?php echo htmlspecialchars($avatar2_path); ?>" alt="<?php echo htmlspecialchars($username2); ?> Avatar" class="player-avatar img-fluid rounded-circle mx-auto d-block mb-2">
+                    <h5 class="player-name"><?php echo htmlspecialchars($username2); ?> 🥉</h5>
+                    <p class="player-score">Score: <?php echo htmlspecialchars($users[2]['score']); ?></p>
+                    <a href="showpronoplayer.php?ID=<?php echo $users[2]['id']; ?>" class="btn btn-sm btn-outline-light">Voir Pronos</a>
+                </div>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>    </div>
   <?php
     } else { ?>
         <div class="m-auto col-10 py-3 row d-flex justify-content-evenly">
