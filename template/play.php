@@ -1,15 +1,3 @@
-<script type="text/javascript">window.setTimeout("document.getElementById('alert').style.display='none';", 2000);
-
-function showtoast(){
-   var toast = document.getElementById("toat");
-toast.classList.add("show"); 
-}
-
-
-
-
-
-</script>
 <?php
 
 include('header.php');
@@ -20,9 +8,18 @@ if (!$_SESSION) {
     include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
 }
 ?>
+<script type="text/javascript">window.setTimeout("document.getElementById('alert').style.display='none';", 2000);
+
+function showtoast(){
+   var toast = document.getElementById("toat");
+toast.classList.add("show");
+}
 
 
 
+
+
+</script>
 <div class="container mx-auto p-1 col-10 col-xl-9">
     <div class="hero-ranking fontsaira col-12">
         <?php
