@@ -479,3 +479,104 @@ th{
 
 
    }
+
+/* Top Players Podium Styling */
+.top-players-podium {
+    /* Basic flex setup if Bootstrap's .row isn't enough, but .row should handle alignment */
+    align-items: flex-end; /* Align items to the bottom to simulate podium heights */
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #ffffff; /* Assuming text is white as per existing style */
+}
+
+.player-podium-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Push card to bottom of slot */
+    padding: 10px;
+}
+
+.player-card {
+    background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent card */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 10px; /* Spacing for the card itself */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.player-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+}
+
+.podium-first {
+    /* Style for the 1st place - potentially taller or more prominent */
+    min-height: 280px; /* Taller than others */
+    background-color: rgba(255, 215, 0, 0.2); /* Gold-ish tint */
+    border-color: rgba(255, 215, 0, 0.5);
+}
+
+.podium-second {
+    min-height: 240px; /* Medium height */
+    background-color: rgba(192, 192, 192, 0.15); /* Silver-ish tint */
+    border-color: rgba(192, 192, 192, 0.4);
+}
+
+.podium-third {
+    min-height: 200px; /* Base height */
+    background-color: rgba(205, 127, 50, 0.15); /* Bronze-ish tint */
+    border-color: rgba(205, 127, 50, 0.4);
+}
+
+.player-avatar {
+    width: 100px; /* Adjust size as needed */
+    height: 100px;
+    border: 3px solid #fff; /* White border around avatar */
+    margin-bottom: 1rem !important; /* Bootstrap override if needed */
+}
+
+.podium-first .player-avatar {
+    width: 120px; /* Larger avatar for 1st place */
+    height: 120px;
+    border-color: gold;
+}
+
+.player-name {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.podium-first .player-name {
+    font-size: 1.5rem; /* Larger name for 1st place */
+    color: gold;
+}
+
+.player-score {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Ensure links within cards are visible */
+.player-card a.btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+.player-card a.btn:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Responsive adjustments if Bootstrap columns aren't enough */
+@media (max-width: 767px) {
+    .top-players-podium .player-podium-slot {
+        margin-bottom: 1.5rem; /* Space between stacked cards */
+    }
+
+    .player-card, .podium-first, .podium-second, .podium-third {
+        min-height: auto; /* Reset min-height for stacked layout */
+    }
+}
