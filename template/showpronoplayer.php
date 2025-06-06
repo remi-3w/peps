@@ -18,6 +18,11 @@ if (!isset($_GET['ID']) || !filter_var($_GET['ID'], FILTER_VALIDATE_INT, ["optio
 } else {
     $target_user_id = (int)$_GET['ID'];
 
+    if (!isset($db) || !$db instanceof PDO) {
+        error_log("DB object check failed in showpronoplayer.php. \$db is not a valid PDO object."); // Log to Docker/PHP error log
+        die("CRITICAL ERROR: Database connection object (\$db) is not available or not a valid PDO object in showpronoplayer.php. Please check header.php and functions/connexion.php. Also check PHP/Docker logs for more details.");
+    }
+
     // Fetch target user's details
     $user_stmt = $db->prepare("SELECT id, username, score FROM users WHERE id = :id");
     $user_stmt->bindParam(':id', $target_user_id, PDO::PARAM_INT);
