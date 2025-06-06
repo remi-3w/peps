@@ -11,7 +11,6 @@ session_start();
     $now = $nowFormatFr->format(time()); 
     $timestampnow = datefmt_parse($nowFormatFr, $now); 
     $timestampnow;
-    var_dump($timestampnow);
 
          if ($_SERVER['REQUEST_METHOD'] == 'POST') {
              // var_dump($_SESSION);

@@ -116,10 +116,11 @@ DROP TABLE IF EXISTS `matchs_users`;
 
     ALTER TABLE matchs DROP user_id;
     ALTER TABLE matchs ADD COLUMN real_score_team1;
+    ALTER TABLE matchs ADD COLUMN real_score_team2; -- Added this line
     ALTER TABLE matchs_users ADD COLUMN score_udapte text null;
     ALTER TABLE matchs_users DROP score_udapte;
 
-    ALTER TABLE matchs rename score_team1 to real_score_team1; 
+    -- Removed: ALTER TABLE matchs rename score_team1 to real_score_team1;
 
     UPDATE matchs SET real_score_team1 = NULL, real_score_team2= NULL;
     UPDATE matchs SET date = "2022-11-21"  WHERE id = 1;
