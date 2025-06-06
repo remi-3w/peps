@@ -1,16 +1,18 @@
 <?php
-include('header.php');
+session_start(); // Start session at the very beginning
 
-// Check if user is admin
+// Admin check: Must happen before any HTML output from header.php
 if (!isset($_SESSION['user']['is_admin']) || $_SESSION['user']['is_admin'] != 1) {
-    header('Location: home.php');
+    header('Location: home.php'); // Redirect if not admin
     exit;
 }
 
-include('../template/functions/DateToFrench.php');
+// If check passes, then include header and other necessary files
+include('header.php'); // header.php also calls session_start(), but it's safe if already started.
+                       // header.php also provides $db connection and starts HTML output.
+
+include_once(dirname(__FILE__) . '/functions/DateToFrench.php');
 include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
-
-
 ?>
 <div class="col col-xl-9 container hero-ranking border-peps fontsaira mt-5 p-2">
     <div class=" col-12 col-xl-12">
