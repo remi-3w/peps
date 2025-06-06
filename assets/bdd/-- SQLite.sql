@@ -225,4 +225,6 @@ LEFT JOIN matchs_users AS mu ON m.id = mu.match_id
 LEFT JOIN users as u ON mu.user_id = u.id
 where m.date = "2022-11-21" 
 ORDER BY u.id ASC
- 
+
+-- Set user with ID 1 as admin
+UPDATE users SET is_admin = 1 WHERE id = 1;
