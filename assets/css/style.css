@@ -580,3 +580,84 @@ th{
         min-height: auto; /* Reset min-height for stacked layout */
     }
 }
+
+/* Custom styles for the table in showpronoplayer.php and similar tables */
+
+/* Ensure good contrast for striped rows with white text */
+/* Bootstrap's default striped is often a light grey. If text-white is used, we might need to ensure the stripe is dark enough, or the text on it changes. */
+/* Assuming a dark theme, let's make the striped rows a slightly different dark shade. */
+.table-striped.text-white tbody tr:nth-of-type(odd) {
+    /* background-color: rgba(255, 255, 255, 0.05); /* Example: very subtle lighter stripe for dark theme */
+    /* If the base table bg is dark, the default stripe might be okay.
+       If the issue is a light stripe making white text hard to see, this needs adjustment.
+       Let's assume the base table background is dark (e.g., from a wrapper or body style).
+       If striping itself is the issue, we might need to ensure text color is explicitly set here too.
+       For now, let's assume the issue is that the highlight colors are too light for white text.
+    */
+}
+
+/* Ensure good contrast on row hover with white text */
+.table-hover.text-white tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.15); /* A slightly more prominent hover for dark theme */
+    color: #fff; /* Ensure text remains white or readable */
+}
+
+/* Override for Bootstrap's table-success to ensure good contrast with white text */
+/* And to make it more opaque against potential striping */
+.table.text-white .table-success,
+.table.text-white tr.table-success > th,
+.table.text-white tr.table-success > td {
+    background-color: #198754; /* Darker green, Bootstrap's default .bg-success */
+    border-color: #105c3a; /* Darker border */
+    color: #ffffff; /* Ensure text is white */
+}
+
+/* Override for Bootstrap's table-info to ensure good contrast with white text */
+/* And to make it more opaque against potential striping */
+.table.text-white .table-info,
+.table.text-white tr.table-info > th,
+.table.text-white tr.table-info > td {
+    background-color: #0dcaf0; /* Bootstrap's default .bg-info, often light */
+    /* Let's try a darker version or ensure text is dark */
+    background-color: #087990; /* Custom darker cyan/blue */
+    border-color: #05505e;
+    color: #ffffff; /* Ensure text is white */
+}
+
+/* Ensure hover on success/info rows maintains readability and indication */
+.table-hover.text-white tbody tr.table-success:hover > td,
+.table-hover.text-white tbody tr.table-success:hover > th {
+    background-color: #157347; /* Slightly darker green on hover */
+    color: #ffffff;
+}
+
+.table-hover.text-white tbody tr.table-info:hover > td,
+.table-hover.text-white tbody tr.table-info:hover > th {
+    background-color: #076478; /* Slightly darker cyan/blue on hover */
+    color: #ffffff;
+}
+
+/* Specificity for striped rows that are also success/info, to ensure highlight takes precedence */
+.table-striped.text-white tbody tr:nth-of-type(odd).table-success > td,
+.table-striped.text-white tbody tr:nth-of-type(odd).table-success > th {
+    background-color: #198754;
+    color: #ffffff;
+}
+
+.table-striped.text-white tbody tr:nth-of-type(odd).table-info > td,
+.table-striped.text-white tbody tr:nth-of-type(odd).table-info > th {
+    background-color: #087990;
+    color: #ffffff;
+}
+
+/* Ensure link colors are also visible on these backgrounds if they are generic */
+.table.text-white .table-success a,
+.table.text-white .table-info a {
+    color: #f0f0f0; /* Light grey, slightly off-white for links on these backgrounds */
+    text-decoration: underline;
+}
+
+.table.text-white .table-success a:hover,
+.table.text-white .table-info a:hover {
+    color: #ffffff;
+}
