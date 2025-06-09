@@ -678,3 +678,459 @@ th{
 .table.text-white .table-info a:hover {
     color: #ffffff;
 }
+
+
+/* Responsive Header Adjustments */
+.hero-logo a.bruno {
+    font-size: 3rem; /* Default size */
+}
+.user-info-header .btn-primary { /* Targeting login button */
+    padding: 0.5rem 1rem; /* Default for btn-md like size */
+    font-size: 1rem;
+}
+
+@media (max-width: 767px) {
+    .hero-logo a.bruno {
+        font-size: 2.2rem; /* Smaller logo text on mobile */
+        text-align: center;
+    }
+    .user-info-header {
+        margin-top: 1rem; /* Space when stacked */
+    }
+    .user-info-header .btn-primary {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem; /* Slightly smaller button */
+    }
+    .header-main-flex-container { /* Assuming you add this class to the main py-5 div in header */
+         padding-top: 1.5rem !important;
+         padding-bottom: 1.5rem !important;
+    }
+}
+
+/* Responsive Home Page (Not Logged In) Adjustments */
+.hero-text h2 {
+    font-size: 2rem; /* Default */
+}
+.hero-text .text-hero {
+    font-size: 1rem; /* Default */
+}
+.hero-text .fa-futbol {
+    /* fa-3x is already quite large. If it needs to be smaller: */
+    /* font-size: 2.5em; */ /* Example */
+}
+.subs-button-container .btn-lg { /* Target specific subscribe button container */
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+}
+
+
+@media (max-width: 767px) {
+    .hero-text h2 {
+        font-size: 1.6rem; /* Smaller for mobile */
+        text-align: center;
+    }
+    .hero-text .text-hero {
+        font-size: 0.95rem; /* Smaller for mobile */
+        text-align: center;
+    }
+    .hero-text .fa-futbol {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        /* font-size: 2em; */ /* Smaller icon if needed */
+    }
+    /* Ensure hero image and text stack well */
+    .home-hero-section > div { /* Assuming home-hero-section is the class for the row containing image and text */
+        text-align: center;
+    }
+    .subs-button-container .btn-lg {
+         padding: 0.4rem 0.8rem;
+         font-size: 1rem;
+    }
+}
+
+
+/* Responsive Play Page Adjustments */
+.play-page-container h1.info-bonus {
+    font-size: 1.75rem; /* Default */
+}
+
+.match-row td {
+    padding: 0.75rem 0.5rem; /* Adjust padding for table cells */
+    vertical-align: middle;
+}
+
+.mdate { /* For match date column */
+    font-size: 0.9rem;
+    /* Consider text wrapping for long dates */
+}
+
+.score { /* For team names and scores in table */
+    font-size: 0.95rem;
+    font-weight: bold;
+}
+
+.match-row .btn-primary { /* "Jouer" button */
+    padding: 0.375rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.close-game { /* "il n'est plus possible de pronostiquer" text */
+    font-size: 0.85rem;
+    font-style: italic;
+}
+
+.score-input-modal {
+    text-align: center;
+}
+
+@media (max-width: 767px) {
+    .play-page-container h1.info-bonus {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+    .mdate {
+        font-size: 0.8rem;
+    }
+    .score {
+        font-size: 0.85rem;
+    }
+    .match-row .btn-primary {
+        font-size: 0.8rem;
+        padding: 0.25rem 0.5rem;
+    }
+    .team-name-modal { /* Team names in modal */
+         margin-bottom: 0.5rem;
+    }
+}
+
+@media (max-width: 575px) { /* Extra small screens for modal */
+    .modal-body .row > div { /* Make score inputs and team names stack better */
+        margin-bottom: 0.5rem;
+    }
+    .modal-body .row .col-6 { /* Score inputs take more width */
+         flex: 0 0 auto;
+         width: 48%; /* Slightly less than 50% to account for gutter */
+    }
+     .team-name-modal {
+        font-weight: bold;
+    }
+}
+
+
+/* Responsive Rank Page Adjustments */
+.rank-page-container h1 {
+    font-size: 2rem; /* Default h1 size */
+    margin-bottom: 1rem;
+}
+
+.rank-page-container .table thead th {
+    /* Style for table headers on rank page if needed */
+    /* Example: border-bottom: 2px solid #fff; */
+}
+
+.rank-page-container .table tbody td,
+.rank-page-container .table tbody th { /* For the rank number */
+    vertical-align: middle;
+}
+
+/* Handling long usernames in the rank table's name column */
+.rank-page-container .table td:nth-child(2) { /* Targets the second 'td', which is the username */
+    word-break: break-word; /* Allow long words to break and wrap */
+    overflow-wrap: break-word; /* Alternative for word breaking */
+    /* Consider a max-width if necessary, but table-responsive helps */
+    /* max-width: 200px; */ /* Example, adjust as needed if you don't want too much wrapping */
+}
+.rank-page-container .table td:nth-child(2) a {
+    /* Ensure link color is consistent if general link styles interfere */
+    color: #f0f0f0; /* Using the light grey from previous link styles */
+}
+.rank-page-container .table td:nth-child(2) a:hover {
+    color: #ffffff;
+}
+
+
+@media (max-width: 767px) {
+    .rank-page-container h1 {
+        font-size: 1.6rem; /* Smaller h1 for mobile */
+        text-align: center;
+    }
+    .rank-page-container .table {
+        font-size: 0.9rem; /* Slightly smaller table text on mobile */
+    }
+}
+
+
+/* Responsive ShowPronoPlayer Page Adjustments */
+.showpronoplayer-page-container h1 {
+    font-size: 1.8rem; /* Default h1 on this page */
+    margin-bottom: 0.75rem;
+}
+
+.showpronoplayer-page-container h4 {
+    font-size: 1.2rem; /* Default h4 on this page */
+    margin-bottom: 1.5rem;
+}
+
+/* Fine-tune table cell content on this specific page if needed */
+.showpronoplayer-page-container .table td,
+.showpronoplayer-page-container .table th {
+    font-size: 0.9rem; /* Base font size for table content */
+    /* Consider word-break for team names if they can be very long,
+       though table-responsive is the main tool here.
+       Example:
+       word-break: break-word;
+    */
+}
+
+.showpronoplayer-page-container .table td:nth-child(1), /* Date column */
+.showpronoplayer-page-container .table th:nth-child(1) {
+    /* white-space: nowrap; /* Optional: if dates should not wrap */
+}
+
+
+@media (max-width: 767px) {
+    .showpronoplayer-page-container h1 {
+        font-size: 1.5rem; /* Smaller h1 for mobile */
+        text-align: center;
+    }
+    .showpronoplayer-page-container h4 {
+        font-size: 1.1rem; /* Smaller h4 for mobile */
+        text-align: center;
+    }
+    .showpronoplayer-page-container .table {
+        font-size: 0.85rem; /* Slightly smaller table text on mobile */
+    }
+    .showpronoplayer-page-container .table td,
+    .showpronoplayer-page-container .table th {
+        padding: 0.4rem 0.3rem; /* Reduce padding in cells on mobile */
+    }
+}
+
+@media (max-width: 575px) {
+    .showpronoplayer-page-container .table {
+        font-size: 0.75rem; /* Even smaller for very small screens */
+    }
+     /* On very small screens, you might hide team codes if names are long */
+    .showpronoplayer-page-container .table .team-code-display { /* Add this class to span around team codes if you want to hide them */
+        /* display: none; */
+    }
+}
+
+
+/* Responsive Auth Page Adjustments (connexion.php, subscribe.php) */
+.gradient-custom .card { /* Target cards within the gradient background */
+    border: none; /* Remove border if any was added by other styles */
+}
+
+.gradient-custom .card-body {
+    padding: 2rem; /* Default padding */
+}
+
+/* Ensure labels stack above inputs by default due to form-label and block inputs */
+.gradient-custom .form-label {
+    display: block; /* Or rely on Bootstrap default for form-label */
+    text-align: left;
+    margin-bottom: 0.5rem;
+}
+
+.gradient-custom .btn-md { /* Styles for buttons if changed to btn-md */
+    padding: 0.5rem 1.5rem;
+    font-size: 1rem;
+}
+
+/* Media queries from previous attempt */
+@media (max-width: 767px) {
+    .gradient-custom .card-body {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 575px) {
+    .gradient-custom .card-body {
+        padding: 1rem;
+    }
+    /* If buttons were KEPT as btn-lg in HTML, resize them here */
+    .gradient-custom .btn-lg {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+    /* If buttons were CHANGED to btn-md in HTML, this styles them for mobile */
+    .gradient-custom .btn-md {
+        padding: 0.4rem 1rem;
+        font-size: 0.9rem;
+    }
+    .gradient-custom .form-label-lg {
+        font-size: 1rem;
+    }
+    .gradient-custom .form-control-lg {
+        font-size: 1rem;
+        padding: 0.4rem 0.75rem;
+    }
+}
+
+
+/* Responsive Global Stats Page Adjustments */
+.global-stats-page-container h1 { /* Main page title */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    /* text-center is already on the h1 in HTML, so no need to repeat here unless overriding */
+}
+
+.global-stats-page-container .stats-section h2 { /* Section titles */
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.global-stats-page-container .stats-section p,
+.global-stats-page-container .stats-section li.list-group-item { /* Paragraphs and list items */
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.global-stats-page-container .stats-section h4 { /* Sub-headings like in Match Deep Dive */
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Styling for list-group-items if default Bootstrap needs override for this page's context */
+.global-stats-page-container .list-group-item {
+    background-color: rgba(255, 255, 255, 0.03) !important; /* Subtle background for list items */
+    border-color: rgba(255, 255, 255, 0.08) !important; /* Subtle border */
+    /* text-white class is on the li element in global_stats.php, so color: #fff should be inherited. */
+}
+
+.global-stats-page-container .list-group-item .badge {
+    font-size: 0.85rem; /* Adjust badge font size */
+}
+
+/* Additional styling for the small text in Oracle Leaderboard */
+.global-stats-page-container #outcome-predictor-leaderboard .list-group-item small {
+    font-size: 0.8em; /* Make it relative to the li font size */
+    opacity: 0.8;
+}
+
+
+@media (max-width: 767px) {
+    .global-stats-page-container h1 {
+        font-size: 1.7rem;
+    }
+    .global-stats-page-container .stats-section h2 {
+        font-size: 1.4rem;
+    }
+    .global-stats-page-container .stats-section p,
+    .global-stats-page-container .stats-section li.list-group-item {
+        font-size: 0.9rem;
+    }
+    .global-stats-page-container .stats-section h4 {
+        font-size: 1.1rem;
+    }
+    .global-stats-page-container .list-group-item {
+        padding: 0.6rem 0.8rem;
+    }
+    .global-stats-page-container .list-group-item .badge {
+        font-size: 0.8rem;
+    }
+    /* Adjust flex behavior in list items if they get too cramped */
+    .global-stats-page-container .list-group-item.d-flex {
+        /* flex-direction: column; */ /* Example: stack content within list items */
+        /* align-items: flex-start !important; */
+    }
+}
+
+@media (max-width: 575px) {
+    .global-stats-page-container {
+        padding-left: 0.75rem !important; /* Reduce side padding on very small screens */
+        padding-right: 0.75rem !important;
+    }
+    .global-stats-page-container h1 {
+        font-size: 1.5rem;
+    }
+    .global-stats-page-container .stats-section h2 {
+        font-size: 1.25rem;
+    }
+     .global-stats-page-container .stats-section p,
+    .global-stats-page-container .stats-section li.list-group-item {
+        font-size: 0.85rem;
+    }
+    .global-stats-page-container .stats-section h4 {
+        font-size: 1rem;
+    }
+}
+
+
+/* Profile List Page Styles */
+.profile-list-page {
+    /* General page container styles if needed */
+}
+
+.profile-list-page .profile-card {
+    background-color: rgba(255, 255, 255, 0.08); /* Subtle card background for dark theme */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem; /* Standard Bootstrap card radius */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Make cards in a row take up equal height */
+}
+
+.profile-list-page .profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* The img tag for avatar has .card-img-top, .img-fluid, .rounded-circle, .mx-auto, .d-block, .mb-2, .mt-3 */
+/* It also has inline styles for 100px x 100px and object-fit: cover */
+/* No additional general CSS needed for .player-avatar class here unless overriding inline. */
+
+.profile-list-page .profile-card .card-body { /* Bootstrap's card-body class */
+    /* text-center was added in HTML to this div */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows card body to take available space */
+}
+
+.profile-list-page .profile-card .card-title { /* This is the h5 for username */
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.75rem;
+    color: #fff; /* Ensure white color inherited correctly */
+}
+
+.profile-list-page .profile-card .card-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #f0f0f0; /* Lighter text for stats */
+    flex-grow: 1; /* Push button to bottom if this is the last text element before button */
+}
+
+.profile-list-page .profile-card .card-text strong {
+    font-weight: 600;
+    color: #ffffff; /* Make strong parts white */
+}
+
+.profile-list-page .profile-card .edit-avatar-btn {
+    /* The button has .btn .btn-dark. Inline styles were reported for positioning. */
+    /* If we want to ensure it's at the bottom: */
+    margin-top: auto; /* Pushes button to the bottom of the card-body flex column */
+    /* Making it a bit smaller to fit cards better */
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+}
+
+/* Responsive adjustments for profile cards */
+@media (max-width: 575px) { /* Extra small screens */
+    .profile-list-page .profile-card .card-title {
+        font-size: 1rem;
+    }
+    .profile-list-page .profile-card .card-text {
+        font-size: 0.85rem;
+    }
+    /* Avatar has inline 100px. To override for XS: */
+    .profile-list-page .profile-card img.card-img-top { /* More specific selector for the avatar */
+        width: 80px !important;
+        height: 80px !important;
+    }
+}

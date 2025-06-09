@@ -85,7 +85,7 @@ if ($_SESSION)
 </div>    </div>
   <?php
     } else { ?>
-        <div class="m-auto col-10 py-3 row d-flex justify-content-evenly">
+        <div class="m-auto col-10 py-3 row d-flex justify-content-evenly home-hero-section">
             <div class=" col-12 col-lg-6 col-xl-6 col-sm-6">			
                 <img class="image-hero d-flex justify-content-center align-items-center col-lg-10 img-fluid" src="../assets/img/FIFA-Womens-World-Cup-2023-Embleme.jpg">
             </div>
@@ -93,11 +93,11 @@ if ($_SESSION)
                 <div class="row d-flex justify-content-center">
                 <h2 class="h2 fw-bold fontsaira ">Pari entre potes</h2>
                 <p class=" col-lg-12 col-xl-12  text-hero col-xl-5 align-items-center fontsaira"> <b>Aligne</b> les scores de tous les matchs du tournoi et <b>hisses</b> toi à la meilleur place du classement</p>
-                <i class=" col-3 far fa-futbol fa-spin fa-3x d-flex justify-content-center align-items-center"></i>  
+                <i class=" col-auto far fa-futbol fa-spin fa-3x d-flex justify-content-center align-items-center"></i>
             </div>
         </div>
         <div class="py-5 col-12 d-flex justify-content-center">
-            <div class="col-3 d-flex justify-content-center ">
+            <div class="col-md-3 col-sm-4 col-6 d-flex justify-content-center subs-button-container">
                 <a class="btn btn-outline-warning btn-lg fontSaira subs" href="/template/subscribe.php" role="button">S'inscrire</a>
             </div>
         </div>

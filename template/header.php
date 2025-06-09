@@ -31,13 +31,13 @@ $timestampnow = datefmt_parse($nowFormatFr, $now);
 </head>
 
 <body>
-<div class="d-flex justify-content-around col-12 py-5">
-        <div class="row col-lg-4 col-xl-4 hero-logo border-peps">
+<div class="d-flex flex-column flex-md-row justify-content-md-around align-items-center col-12 py-3 py-md-5 header-main-flex-container">
+        <div class="col-12 col-md-5 col-lg-4 text-center text-md-start hero-logo border-peps mb-3 mb-md-0">
             <a href="./home.php" id="linkhome" class="bruno col-lg-12 col-12">
                 PEP'S
             </a>
         </div>
-        <div class="col-xl-2 row">
+        <div class="col-12 col-md-5 col-lg-3 text-center text-md-end user-info-header">
             <?php if ($_SESSION) {
                 ?>
                 <div class="text-center text-white">
@@ -61,7 +61,7 @@ $timestampnow = datefmt_parse($nowFormatFr, $now);
                 <img class="imglogin m-auto" src= <?php echo $avatar ?>>
             <?php } else {
             ?>
-            <a href="./connexion.php"><button class="btn btn-primary btn-lg ">Connexion</button></a>
+            <a href="./connexion.php"><button class="btn btn-primary btn-md">Connexion</button></a>
             <?php       
             }          
             if (isset($msg["flash"])) {
