@@ -13,7 +13,7 @@ if (!isset($_SESSION['user'])) { // Check if user is logged in
             // Lateral navbar is included only for logged-in users, which is handled by the check above.
             include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
         ?>
-        <main class="col ps-md-2 pt-2 main-content-area">
+        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
             <?php // Original content of play.php starts here, now inside <main> ?>
             <script type="text/javascript">
             window.setTimeout("document.getElementById('alert').style.display='none';", 2000);

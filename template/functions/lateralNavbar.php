@@ -7,7 +7,7 @@ $sql = 'SELECT *
 FROM matchs_users AS mu ORDER BY id ASC';
 ?>
 
-<div class="lateralnav col-auto col-sm-3 col-md-3 col-lg-2 px-0 px-sm-2 vh-100 overflow-auto sticky-top">
+<div class="lateralnav col-auto col-sm-3 col-md-3 col-lg-2 px-sm-2 vh-100 overflow-auto sticky-top lateral-navbar-column">
     <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-2">
         <div class="col-12 col-lg-12 col-xl-12">
             <p class="currentDate fontsaira fw-bold text-center m-auto "><?php print_r($now); ?></p1>
