@@ -63,7 +63,7 @@ if (!isset($_GET['ID']) || !filter_var($_GET['ID'], FILTER_VALIDATE_INT, ["optio
 }
 ?>
 
-<div class="container-md p-3 showpronoplayer-page-container">
+<div class="col-8 container pt-2 main-content-area-with-sidebar ps-md-2">
     <?php if (!empty($error_message)): ?>
         <div class="alert alert-danger" role="alert">
             <?php echo htmlspecialchars($error_message); ?>
@@ -72,7 +72,7 @@ if (!isset($_GET['ID']) || !filter_var($_GET['ID'], FILTER_VALIDATE_INT, ["optio
         <h1 class="mb-3 text-white">Pronostics de <?php echo htmlspecialchars($target_user['username']); ?></h1>
         <h4 class="mb-4 text-white">Score Total: <?php echo htmlspecialchars($target_user['score']); ?></h4>
 
-        <div class="table-responsive">
+        <div class="row flex-nowrap gx-0 table-responsive">
             <table class="table table-striped table-hover table-bordered text-white fontsaira">
                 <thead class="thead-dark">
                     <tr>
@@ -131,8 +131,7 @@ if (!isset($_GET['ID']) || !filter_var($_GET['ID'], FILTER_VALIDATE_INT, ["optio
                 </tbody>
             </table>
         </div>
-             </div>
-                  </div>     </div>
+                            </body>
     <?php else: ?>
         <?php // This case should ideally be caught by $error_message, but as a fallback: ?>
         <div class="alert alert-info" role="alert">

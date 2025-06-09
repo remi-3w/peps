@@ -31,7 +31,7 @@ $timestampnow = datefmt_parse($nowFormatFr, $now);
 </head>
 
 <body>
-<div class="d-flex flex-column flex-md-row justify-content-md-around align-items-center col-12 py-3 py-md-5 header-main-flex-container">
+    <div class="d-flex flex-column flex-md-row justify-content-md-around align-items-center col-12 py-3 py-md-5 header-main-flex-container">
         <div class="col-12 col-md-5 col-lg-4 text-center text-md-start hero-logo border-peps mb-3 mb-md-0">
             <a href="./home.php" id="linkhome" class="bruno col-lg-12 col-12">
                 PEP'S
