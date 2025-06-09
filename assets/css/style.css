@@ -1,3 +1,22 @@
+/* CSS Custom Properties for Layout */
+:root {
+    /* Navbar widths based on Bootstrap col-* classes and desired XS behavior */
+    /* For XS (col-auto, icons only) - assuming a fixed width for when text is hidden */
+    --navbar-width-xs: 70px; /* Example: Adjust if actual icon bar width is different */
+
+    /* For SM (col-sm-3 is 25% of parent) */
+    --navbar-width-sm: 25%;
+
+    /* For MD (col-md-3 is 25% of parent) */
+    --navbar-width-md: 25%;
+
+    /* For LG & XL (col-lg-2 is 16.66666667% of parent) */
+    --navbar-width-lg: 16.66666667%;
+
+    /* Current navbar width - this will be updated by media queries */
+    --navbar-width-current: var(--navbar-width-xs);
+}
+
 @font-face {
  font-family: Bruno ;
  src: local("BrunoAceRegular.ttf") format("ttf");    
@@ -1171,6 +1190,7 @@ th{
 .main-content-area { /* This is the <main class="col ... main-content-area"> */
     height: 100vh; /* Make it full viewport height */
     overflow-y: auto; /* Allow its own content to scroll vertically */
+    margin-left: var(--navbar-width-current); /* Added this line */
     /* If there's a fixed top header (e.g., 60px high) from header.php:
        height: calc(100vh - 60px);
     */
@@ -1194,7 +1214,51 @@ th{
     }
     .lateralnav.col-auto {
         /* Minimal styles for when it's icon-only */
+        display: flex; /* Ensure it's a flex container to center its child */
+        justify-content: center; /* Center the inner .d-flex.flex-column */
         padding-left: 0.5rem !important;
         padding-right: 0.5rem !important;
     }
 }
+
+
+/* Explicit width control for the lateral navbar column */
+.lateral-navbar-column {
+    flex-shrink: 0; /* Prevent shrinking in flex context */
+    width: var(--navbar-width-current); /* Set width using the current variable */
+    /* Bootstrap's col-* classes also set flex-basis and max-width.
+       This width might override or work with them.
+       Explicitly setting flex-basis might be good too.
+    */
+    flex-basis: var(--navbar-width-current);
+}
+
+/* Update --navbar-width-current based on breakpoints */
+/* XS is already default in :root for --navbar-width-current */
+/* No specific media query needed for XS unless to override the :root default */
+
+/* SM Breakpoint (Bootstrap: >= 576px) */
+@media (min-width: 576px) {
+    :root {
+        --navbar-width-current: var(--navbar-width-sm);
+    }
+}
+
+/* MD Breakpoint (Bootstrap: >= 768px) */
+@media (min-width: 768px) {
+    :root {
+        --navbar-width-current: var(--navbar-width-md);
+    }
+}
+
+/* LG Breakpoint (Bootstrap: >= 992px) */
+@media (min-width: 992px) {
+    :root {
+        --navbar-width-current: var(--navbar-width-lg);
+    }
+}
+
+/* XL & XXL Breakpoints (Bootstrap: >= 1200px, >=1400px) */
+/* It will continue to use --navbar-width-lg unless overridden for xl/xxl specifically */
+/* The col-lg-2 class on navbar should handle its max width within Bootstrap's grid. */
+/* This CSS primarily ensures the variable --navbar-width-current is correctly set. */

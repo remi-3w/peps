@@ -24,7 +24,7 @@ if (isset($db)) { // Ensure $db is available before using it
         }
         ?>
 
-        <main class="col <?php echo isset($_SESSION['user']) ? 'ps-md-2' : ''; ?> pt-2 main-content-area">
+        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
             <div class="container-md p-3 rank-page-container">
                 <h1 class="text-white text-center">Classement</h1>
                 <?php /* if (isset($error_message)): ?>

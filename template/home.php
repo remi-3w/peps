@@ -10,7 +10,7 @@
         }
         ?>
 
-        <main class="col p-0 main-content-area">
+        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
             <?php
             if (isset($_SESSION['user'])) { // Content for logged-in users
                 // Fetch top 3 users for the podium - only if logged in
