@@ -62,7 +62,7 @@ if (!isset($_GET['ID']) || !filter_var($_GET['ID'], FILTER_VALIDATE_INT, ["optio
     }
 }
 ?>
-<div class="container mt-4 col-12 col-xl-9 mx-auto">
+<div class="container-md mt-4 p-3 showpronoplayer-page-container">
     <?php if (!empty($error_message)): ?>
         <div class="alert alert-danger" role="alert">
             <?php echo htmlspecialchars($error_message); ?>

@@ -20,7 +20,7 @@ toast.classList.add("show");
 
 
 </script>
-<div class="container mx-auto p-1 col-10 col-xl-9">
+<div class="container-md p-1 play-page-container">
     <div class="hero-ranking fontsaira col-12">
         <?php
         if (isset($_SESSION["flash"])) {
@@ -36,100 +36,104 @@ toast.classList.add("show");
 ?>  </div>
     <div>
         <h1 class ="text-white info-bonus">Points bonus ⭐<?php  $winteam = "Mexique";
-echo $winteam ?></h1>
-        <table class="mx-auto table table-borderless ">
-            <tbody>
-                <?php
-        $sql = 'SELECT m.date, m.id, m.team1_id, m.team2_id, t1.code AS equipe1, t2.code AS equipe2 FROM matchs AS m INNER JOIN teams as t1 ON m.team1_id =  t1.id INNER JOIN teams AS t2 ON m.team2_id = t2.id ORDER BY m.date ASC;';
-$stmt = $db->prepare($sql);
-$stmt->execute();
-$matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
-$timestampnow; // date du jour en timestamps
-foreach ($matchs as $match) {
-    $date = $match["date"];
-    $timestampmatchday = strtotime($date); // date du match en time stamp
-    $equipe1 = $match['equipe1'];
-    $equipe2 = $match['equipe2'];
-    $matchid = $match['id'];
-    $sql = 'SELECT  mu.score_team1, mu.score_team2, mu.score_update FROM matchs_users AS mu WHERE mu.match_id = :matchid AND mu.user_id = :user_id';
-    $stmt = $db->prepare($sql);
-    $stmt->bindValue(':matchid', $matchid, PDO::PARAM_INT);
-    $stmt->bindValue(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
-    $stmt->execute();
-    $matchScore = $stmt->fetch();
-    $stmt->closeCursor();
-    if ($matchScore) {
-        $score1 = $matchScore['score_team1'];
-        $score2 = $matchScore['score_team2'];
-        $score_update = $matchScore['score_update'];
-    } else {
-        $score1 = 0;
-        $score2 = 0;
-    }
-    ?>
-                    <!-- Modal -->
-                    <div class="modal fade" id="myModal-<?php echo $matchid; ?>" tabindex="-1" aria-labelledby="myModal-<?php echo $matchid; ?>" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="myModal-<?php echo $matchid; ?>"><?php echo "$equipe1"." VS ". "$equipe2"; ?></h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body row">
-                        <form class="form-inline" id="form" method="POST" action ="functions/registerScore.php">
-                               <p class=" col-3"><?php echo "$equipe1"; ?></p>
-                            <input type="hidden" name="nummatch" id="nummatch" value=<?php echo $matchid; ?> >
-                            <input class="myInput col-3" type="number" placeholder="?" name="score1" id="score1" max="20" min="0" step="1">
-                            <input class="myInput col-3" type="number" placeholder="?" name="score2" id="score2" max="20" min="0" step="1">
-                            <p class="col-3"><?php echo "$equipe2"; ?>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                            <button type="submit" class="btn btn-primary" id="submit">Valider</button>
-                        </div>
-                    </form>
-                    </div>
-                </div>
-            </div>
-                    <tr class='col-12 d-flex align-items-center'><td class='col-4 col-xl-4 ml-3 mdate'>
-                    <?php echo dateToFrench("$date", 'l j F');?>
-                    </td>            
-                    <td class='score col-3 col-xl-2' ><?php echo "$equipe1 - $equipe2"; ?></td>
-                    <td class ='score col-1 col-xl-1'><?php echo "$score1 - $score2" ; ?></td>
-                   <?php
-                        $timestampmatchday = strtotime($date); // date du match en time stamp
-                        $timestampnow; // date du jour en timestamps
-                        if ($timestampmatchday > $timestampnow) {?>
-                        <td class ="col-5 col-xl-6"><p class="close-game"> il n'est plus possible de pronostiquer</p></td>
-                        <?php } else { ?>
-                               <td class="col-2"> <input type="hidden" id="nummatch" name="nummatch" value="<?php echo $matchid ?>">
-                               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal-<?php echo $matchid; ?>">jouer</button>
-                               
-                             </td>
-                            
-                             <td class ='col-3 col-xl-3'><?php if ($score_update !== null){
-                                echo $score_update ; 
-                             }else{
-                                echo " il n'y a pas eu de prono " ;
-                             }; ?></td>
-                             <td class="col-3">
-                             <div class="toast " role="alert" aria-live="assertive" aria-atomic="true">
-                                <div class="toast-header">
-                                    <img src="..." class="rounded me-2" alt="...">
-                                    <strong class="me-auto">Bootstrap</strong>
-                                    <small>11 mins ago</small>
-                                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                                </div>
-                                <div class="toast-body">
-                                    ✅ Score enregisté.
+echo htmlspecialchars($winteam) ?></h1>
+        <div class="table-responsive">
+            <table class="mx-auto table table-borderless">
+                <tbody>
+                    <?php
+                    $sql = 'SELECT m.date, m.id, m.team1_id, m.team2_id, t1.code AS equipe1_code, t1.name AS equipe1_name, t2.code AS equipe2_code, t2.name AS equipe2_name FROM matchs AS m INNER JOIN teams as t1 ON m.team1_id =  t1.id INNER JOIN teams AS t2 ON m.team2_id = t2.id ORDER BY m.date ASC;';
+                    $stmt = $db->prepare($sql);
+                    $stmt->execute();
+                    $matchs = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                    // $timestampnow should be defined, assuming it's set in header or earlier in script
+                    // For safety, let's ensure $timestampnow is available here or use time()
+                    $current_time_for_check = isset($timestampnow) ? $timestampnow : time();
+
+                    foreach ($matchs as $match) {
+                        $date = $match["date"];
+                        $timestampmatchday = strtotime($date);
+                        $equipe1_name = $match['equipe1_name']; // Use full name for display
+                        $equipe2_name = $match['equipe2_name']; // Use full name for display
+                        $equipe1_code = $match['equipe1_code']; // For potential use like flags
+                        $equipe2_code = $match['equipe2_code']; // For potential use like flags
+                        $matchid = $match['id'];
+
+                        $sql_score = 'SELECT mu.score_team1, mu.score_team2, mu.score_update FROM matchs_users AS mu WHERE mu.match_id = :matchid AND mu.user_id = :user_id';
+                        $stmt_score = $db->prepare($sql_score);
+                        $stmt_score->bindValue(':matchid', $matchid, PDO::PARAM_INT);
+                        $stmt_score->bindValue(':user_id', $_SESSION['user']['id'], PDO::PARAM_INT);
+                        $stmt_score->execute();
+                        $matchScore = $stmt_score->fetch();
+                        $stmt_score->closeCursor();
+
+                        $score1 = $matchScore ? $matchScore['score_team1'] : 0;
+                        $score2 = $matchScore ? $matchScore['score_team2'] : 0;
+                        $score_update = $matchScore ? $matchScore['score_update'] : null;
+                    ?>
+                        <!-- Modal -->
+                        <div class="modal fade" id="myModal-<?php echo $matchid; ?>" tabindex="-1" aria-labelledby="myModalLabel-<?php echo $matchid; ?>" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <form method="POST" action="functions/registerScore.php">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="myModalLabel-<?php echo $matchid; ?>"><?php echo htmlspecialchars($equipe1_name)." VS ".htmlspecialchars($equipe2_name); ?></h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <input type="hidden" name="nummatch" value="<?php echo $matchid; ?>">
+                                            <div class="row align-items-center text-center g-2">
+                                                <div class="col-sm-5 team-name-modal"><?php echo htmlspecialchars($equipe1_name); ?></div>
+                                                <div class="col-6 col-sm-3">
+                                                    <input class="form-control myInput score-input-modal" type="number" placeholder="?" name="score1" id="score1-<?php echo $matchid; ?>" max="20" min="0" step="1">
+                                                </div>
+                                                <div class="col-6 col-sm-3">
+                                                    <input class="form-control myInput score-input-modal" type="number" placeholder="?" name="score2" id="score2-<?php echo $matchid; ?>" max="20" min="0" step="1">
+                                                </div>
+                                                <div class="col-sm-5 team-name-modal order-sm-last"><?php echo htmlspecialchars($equipe2_name); ?></div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                            <button type="submit" class="btn btn-primary">Valider</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                                </td>                  
+                        </div>
+                        <tr class='match-row align-items-center'>
+                            <td class='mdate'><?php echo dateToFrench($date, 'l j F');?></td>
+                            <td class='score'><?php echo htmlspecialchars($equipe1_name) . " - " . htmlspecialchars($equipe2_name); ?></td>
+                            <td class='score'><?php echo htmlspecialchars($score1) . " - " . htmlspecialchars($score2) ; ?></td>
+                            <?php
+                            if ($timestampmatchday < $current_time_for_check) { // Use defined current time
+                            ?>
+                                <td><p class="close-game">Il n'est plus possible de pronostiquer</p></td>
+                            <?php } else { ?>
+                                <td>
+                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal-<?php echo $matchid; ?>">Jouer</button>
+                                </td>
+                            <?php } ?>
+                            <td><?php if ($score_update !== null){
+                                   echo htmlspecialchars($score_update);
+                                 }else{
+                                   echo "Pas de prono";
+                                 }; ?></td>
+                            <td>
+                                 <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toast-<?php echo $matchid; ?>">
+                                     <div class="toast-header">
+                                         <strong class="me-auto">Notification</strong>
+                                         <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                                     </div>
+                                     <div class="toast-body">
+                                         ✅ Score enregistré.
+                                     </div>
+                                 </div>
+                            </td>
+                        </tr>
                     <?php }; ?>
-                   </tr>
-                   <?php }; ?>
-            </tbody>
-        </table>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
 

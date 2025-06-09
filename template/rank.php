@@ -7,13 +7,14 @@ $stmt = $db->prepare($sql);
 $stmt->execute();
 $users = $stmt->fetchall();
 ?>
-<div class="container mx-auto p-1 col-12 col-xl-9 ">
-<h1 class ="text-white">Classement</h1>
+<div class="container-md p-3 rank-page-container">
+<h1 class ="text-white text-center">Classement</h1>
     <div class="hero-ranking fontsaira">
-        <table class="table table-borderless align-middle">
-            <thead>
-                <tr class="tablehead">
-                    <th scope="col">#</th>
+        <div class="table-responsive">
+            <table class="table table-borderless align-middle text-white table-striped table-hover fontsaira">
+                <thead>
+                    <tr class="tablehead">
+                        <th scope="col">#</th>
                     <th scope="col">Nom</th>
                     <th scope="col">Points</th>
                 </tr>
@@ -28,14 +29,15 @@ $users = $stmt->fetchall();
                     <tr>
                         <th scope="row"><?php echo $i++; ?></th>
                         <td>
-                            <a href="/template/showpronoplayer.php?ID= <?php echo $userid;?>"><?php echo $username;?></a>
+                            <a href="/template/showpronoplayer.php?ID=<?php echo $userid;?>"><?php echo htmlspecialchars($username);?></a>
                         </td>
                         <td>
-                            <?php echo $user["score"]; ?>
+                            <?php echo htmlspecialchars($user["score"]); ?>
                         </td>
                     </tr>
                 <?php } ?>
             </tbody>
-        </table>
+            </table>
+        </div>
     </div>
 </div>

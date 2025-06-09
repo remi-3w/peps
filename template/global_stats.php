@@ -18,7 +18,7 @@ include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
 </head>
 <body>
 
-<div class="container mx-auto p-1 col-12 col-xl-9">
+<div class="container-md p-3 global-stats-page-container">
     <h1 class="text-white text-center my-4">Statistiques Globales du Tournoi</h1>
 
     <div class="stats-section my-5">
