@@ -10,7 +10,7 @@
         }
         ?>
 
-        <main class="col p-0 main-content-area">
+        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
             <?php
             if (isset($_SESSION['user'])) { // Content for logged-in users
                 // Fetch top 3 users for the podium - only if logged in
@@ -24,9 +24,9 @@
                     $users = [];
                 }
             ?>
-            <div class="home-page-inner-content p-3">
-                <div class="container-fluid"> {/* Using container-fluid for wider content with sidebar */}
-                  <div class="livetoast col-12 z-1" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 1rem; right: 1rem;">
+            <div class="home-page-inner-content p-0">
+                <div class="container-fluid"> 
+                  <div class="livetoast col-12 z-1" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 1rem; right: 1rem;"> </div>
                 <div class="toast-header bg-warning">
                     <img src="..." class="rounded me-2" alt="⭐">
                     <strong class="me-auto">Information</strong>
@@ -36,9 +36,10 @@
                 <div class="toast-body bg-warning">
                     Choisis l'équipe gagnante et prend un bonus de 300 points
                 </div>
-        </div>
+       
 
     <div class="top-players-podium row text-center mt-4 mb-4">
+        
         <?php if (isset($users[1])): // 2nd Place - Visually Left ?>
             <?php
                 $username1 = $users[1]['username'];
