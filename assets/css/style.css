@@ -1134,3 +1134,67 @@ th{
         height: 80px !important;
     }
 }
+
+
+/* Global Layout: Sidebar (lateralnav) and Main Content Area */
+
+.page-wrapper.container-fluid {
+    /* This is the top-level wrapper for sidebar + content.
+       No specific styles needed here unless to clear a fixed header.
+       Example if header.php creates a 60px fixed top banner:
+       padding-top: 60px;
+    */
+}
+
+.lateralnav { /* This is the main sidebar column, which has Bootstrap's sticky-top */
+    background-color: #002148; /* Base background for the nav */
+    color: rgba(123, 180, 246, 1); /* Default text color for items if not overridden by links */
+    /* vh-100, overflow-auto are from Bootstrap classes applied in lateralNavbar.php */
+    /* sticky-top from Bootstrap provides: position: sticky, top: 0, z-index: 1020 */
+    /* We might want a slightly higher z-index if other elements interfere */
+    z-index: 1025;
+    /* If there's a fixed top header (e.g., 60px high) from header.php,
+       the 'top' value for sticky-top needs to account for it.
+       This can be done by adding a class to body/page-wrapper when fixed header is active,
+       or by ensuring the .row containing sidebar+main is offset.
+       For now, assuming top:0 from sticky-top is fine (no fixed header above this row).
+       If header.php's top banner IS fixed/sticky, this needs adjustment:
+       top: 60px; /* Assuming 60px header height */
+       height: calc(100vh - 60px); /* Adjust height if top is offset */
+    */
+}
+
+.lateralnav a {
+   color: rgb(239, 239, 240);
+}
+
+.main-content-area { /* This is the <main class="col ... main-content-area"> */
+    height: 100vh; /* Make it full viewport height */
+    overflow-y: auto; /* Allow its own content to scroll vertically */
+    /* If there's a fixed top header (e.g., 60px high) from header.php:
+       height: calc(100vh - 60px);
+    */
+    /* Padding (like ps-md-2 pt-2) is applied directly on the <main> tag in HTML templates */
+}
+
+/* Ensure that on small screens where navbar might stack or hide,
+   the main content area takes full width properly.
+   Bootstrap's `col` class in a row should handle this automatically
+   if the navbar column hides or becomes col-12.
+*/
+@media (max-width: 575.98px) { /* Corresponds to Bootstrap's sm breakpoint, where col-auto is used for navbar */
+    .main-content-area {
+        /* If navbar is col-auto (icon width) and visible, main content should still flow beside it.
+           If navbar was to stack on top (col-12), then main content would be col-12 too.
+           The flex-nowrap on parent row prevents stacking of columns.
+           The ps-md-2 on main content provides left space from navbar on md+ screens.
+           On smaller screens, if navbar is col-auto, main-content (as .col) will take rest.
+           No specific margin override needed here unless navbar behavior changes.
+        */
+    }
+    .lateralnav.col-auto {
+        /* Minimal styles for when it's icon-only */
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important;
+    }
+}

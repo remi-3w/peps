@@ -7,13 +7,11 @@ $sql = 'SELECT *
 FROM matchs_users AS mu ORDER BY id ASC';
 ?>
 
-<div class="container-fluid ">
-    <div class="row flex-nowrap ">
-        <div class=" lateralnav col-2 col-md-2 col-xl-2 px-sm-2 px-0">
-            <div class="sticky d-flex lateralnav flex-column align-items-center align-items-sm-start px-1 pt-2  min-vh-100">
-                <div class="col-12 col-lg-12 col-xl-12">
-                    <p class="currentDate fontsaira fw-bold text-center m-auto "><?php print_r($now); ?></p1>
-                </div>
+<div class="lateralnav col-auto col-sm-3 col-md-3 col-lg-2 px-0 px-sm-2 vh-100 overflow-auto sticky-top">
+    <div class="d-flex flex-column align-items-center align-items-sm-start px-1 pt-2">
+        <div class="col-12 col-lg-12 col-xl-12">
+            <p class="currentDate fontsaira fw-bold text-center m-auto "><?php print_r($now); ?></p1>
+        </div>
                 <ul class="nav nav-pills nav-fill flex-column mb-sm-auto mb-0 align-items-sm-start" id="menu">
                     <p class="d-flex align-items-center pb-3 mb-md-0 me-md-auto">
                         <span class="fs-5 d-none d-sm-inline">Pages</span>
@@ -94,7 +92,7 @@ FROM matchs_users AS mu ORDER BY id ASC';
                         <li><a class="dropdown-item" href="/logout.php">Sign out</a></li>
                     </ul>
                 </div>
-
-
-            </div>
-        </div>
+            <!-- Note: The original file was missing closing divs for container-fluid and row.
+                 This refactoring makes the navbar self-contained as a single column div. -->
+    </div>
+</div>

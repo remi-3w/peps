@@ -1,18 +1,32 @@
-<?php
-include(dirname(__FILE__) . '/header.php');
-if ($_SESSION)
-{
-     include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
-};
+<?php include(dirname(__FILE__) . '/header.php'); ?>
 
-    $sql = 'SELECT * FROM users ORDER BY score DESC limit 3';
-    $stmt = $db->prepare($sql);
-    $stmt->execute();
-    $users = $stmt->fetchAll();
+<div class="page-wrapper container-fluid px-0">
+    <div class="row flex-nowrap gx-0">
 
-    if ($_SESSION) {?>
-<div class="container col-8 ">
-  <div class="livetoast col-12 z-1" role="alert" aria-live="assertive" aria-atomic="true">
+        <?php
+        // Sidebar column (conditionally included)
+        if (isset($_SESSION['user'])) { // More specific check
+            include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
+        }
+        ?>
+
+        <main class="col p-0 main-content-area">
+            <?php
+            if (isset($_SESSION['user'])) { // Content for logged-in users
+                // Fetch top 3 users for the podium - only if logged in
+                // Ensure $db is available from header.php
+                if (isset($db)) {
+                    $sql_podium = 'SELECT id, username, score, picture FROM users ORDER BY score DESC LIMIT 3'; // Renamed SQL variable
+                    $stmt_podium = $db->prepare($sql_podium);
+                    $stmt_podium->execute();
+                    $users = $stmt_podium->fetchAll(PDO::FETCH_ASSOC); // Keep $users for now, will update podium later if needed
+                } else {
+                    $users = [];
+                }
+            ?>
+            <div class="home-page-inner-content p-3">
+                <div class="container-fluid"> {/* Using container-fluid for wider content with sidebar */}
+                  <div class="livetoast col-12 z-1" role="alert" aria-live="assertive" aria-atomic="true" style="position: fixed; top: 1rem; right: 1rem;">
                 <div class="toast-header bg-warning">
                     <img src="..." class="rounded me-2" alt="⭐">
                     <strong class="me-auto">Information</strong>
@@ -80,29 +94,37 @@ if ($_SESSION)
                     <a href="showpronoplayer.php?ID=<?php echo $users[2]['id']; ?>" class="btn btn-sm btn-outline-light">Voir Pronos</a>
                 </div>
             </div>
-        <?php endif; ?>
-    </div>
-</div>    </div>
-  <?php
-    } else { ?>
-        <div class="m-auto col-10 py-3 row d-flex justify-content-evenly home-hero-section">
-            <div class=" col-12 col-lg-6 col-xl-6 col-sm-6">			
-                <img class="image-hero d-flex justify-content-center align-items-center col-lg-10 img-fluid" src="../assets/img/FIFA-Womens-World-Cup-2023-Embleme.jpg">
+                        <?php endif; ?>
+                    </div>
+                </div> <!-- Closes .container-fluid from logged-in view -->
+            </div> <!-- Closes .home-page-inner-content from logged-in view -->
+            <?php } else { // Non-logged-in view ?>
+                <div class="home-page-inner-content p-0">
+                    <div class="container-fluid vh-100 d-flex flex-column justify-content-center"> {/* Centering content */}
+                        <div class="m-auto col-12 py-3 row d-flex justify-content-evenly home-hero-section align-items-center"> {/* home-hero-section remains for existing CSS */}
+            <div class=" col-12 col-lg-6 col-xl-6 text-center">
+                <img class="image-hero img-fluid" src="../assets/img/FIFA-Womens-World-Cup-2023-Embleme.jpg" alt="FIFA Women's World Cup 2023 Logo">
             </div>
-            <div class="col-12 col-lg-6 col-xl-6 col-sm-6 hero-text d-flex justify-content-evenly">
+            <div class="col-12 col-lg-6 col-xl-6 hero-text p-4 rounded">
                 <div class="row d-flex justify-content-center">
                 <h2 class="h2 fw-bold fontsaira ">Pari entre potes</h2>
-                <p class=" col-lg-12 col-xl-12  text-hero col-xl-5 align-items-center fontsaira"> <b>Aligne</b> les scores de tous les matchs du tournoi et <b>hisses</b> toi à la meilleur place du classement</p>
-                <i class=" col-auto far fa-futbol fa-spin fa-3x d-flex justify-content-center align-items-center"></i>
+                <p class="col-lg-10 col-xl-10 mx-auto text-hero fontsaira"> <b>Aligne</b> les scores de tous les matchs du tournoi et <b>hisse</b> toi à la meilleure place du classement</p>
+                <i class="col-auto far fa-futbol fa-spin fa-3x d-block mx-auto my-3"></i>
             </div>
         </div>
         <div class="py-5 col-12 d-flex justify-content-center">
-            <div class="col-md-3 col-sm-4 col-6 d-flex justify-content-center subs-button-container">
-                <a class="btn btn-outline-warning btn-lg fontSaira subs" href="/template/subscribe.php" role="button">S'inscrire</a>
+            <div class="col-md-4 col-sm-6 col-8 d-flex justify-content-center subs-button-container">
+                <a class="btn btn-outline-warning btn-lg fontSaira subs w-100" href="/template/subscribe.php" role="button">S'inscrire</a>
             </div>
         </div>
+                    </div>
+                </div>
+            </div>
+            <?php } ?>
+        </main>
 
-    <?php }?> 
+    </div><!-- /.row -->
+</div><!-- /.page-wrapper -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
