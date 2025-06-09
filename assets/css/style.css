@@ -880,19 +880,19 @@ th{
 
 
 /* Responsive ShowPronoPlayer Page Adjustments */
-.showpronoplayer-page-container h1 {
+.showpronoplayer-inner-content h1 {
     font-size: 1.8rem; /* Default h1 on this page */
     margin-bottom: 0.75rem;
 }
 
-.showpronoplayer-page-container h4 {
+.showpronoplayer-inner-content h4 {
     font-size: 1.2rem; /* Default h4 on this page */
     margin-bottom: 1.5rem;
 }
 
 /* Fine-tune table cell content on this specific page if needed */
-.showpronoplayer-page-container .table td,
-.showpronoplayer-page-container .table th {
+.showpronoplayer-inner-content .table td,
+.showpronoplayer-inner-content .table th {
     font-size: 0.9rem; /* Base font size for table content */
     /* Consider word-break for team names if they can be very long,
        though table-responsive is the main tool here.
@@ -901,36 +901,36 @@ th{
     */
 }
 
-.showpronoplayer-page-container .table td:nth-child(1), /* Date column */
-.showpronoplayer-page-container .table th:nth-child(1) {
+.showpronoplayer-inner-content .table td:nth-child(1), /* Date column */
+.showpronoplayer-inner-content .table th:nth-child(1) {
     /* white-space: nowrap; /* Optional: if dates should not wrap */
 }
 
 
 @media (max-width: 767px) {
-    .showpronoplayer-page-container h1 {
+    .showpronoplayer-inner-content h1 {
         font-size: 1.5rem; /* Smaller h1 for mobile */
         text-align: center;
     }
-    .showpronoplayer-page-container h4 {
+    .showpronoplayer-inner-content h4 {
         font-size: 1.1rem; /* Smaller h4 for mobile */
         text-align: center;
     }
-    .showpronoplayer-page-container .table {
+    .showpronoplayer-inner-content .table {
         font-size: 0.85rem; /* Slightly smaller table text on mobile */
     }
-    .showpronoplayer-page-container .table td,
-    .showpronoplayer-page-container .table th {
+    .showpronoplayer-inner-content .table td,
+    .showpronoplayer-inner-content .table th {
         padding: 0.4rem 0.3rem; /* Reduce padding in cells on mobile */
     }
 }
 
 @media (max-width: 575px) {
-    .showpronoplayer-page-container .table {
+    .showpronoplayer-inner-content .table {
         font-size: 0.75rem; /* Even smaller for very small screens */
     }
      /* On very small screens, you might hide team codes if names are long */
-    .showpronoplayer-page-container .table .team-code-display { /* Add this class to span around team codes if you want to hide them */
+    .showpronoplayer-inner-content .table .team-code-display { /* Add this class to span around team codes if you want to hide them */
         /* display: none; */
     }
 }
