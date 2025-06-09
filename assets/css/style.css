@@ -1190,7 +1190,11 @@ th{
 .main-content-area { /* This is the <main class="col ... main-content-area"> */
     height: 100vh; /* Make it full viewport height */
     overflow-y: auto; /* Allow its own content to scroll vertically */
+<<<<<<< HEAD
     /*margin-left: var(--navbar-width-current); /* Added this line */
+=======
+    margin-left: var(--navbar-width-current); /* Added this line */
+>>>>>>> 792b9404f49b1fdd8b705bed05ff145402ac4b34
     /* If there's a fixed top header (e.g., 60px high) from header.php:
        height: calc(100vh - 60px);
     */
