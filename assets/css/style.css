@@ -1308,3 +1308,84 @@ th{
 /* It will continue to use --navbar-width-lg unless overridden for xl/xxl specifically */
 /* The col-lg-2 class on navbar should handle its max width within Bootstrap's grid. */
 /* This CSS primarily ensures the variable --navbar-width-current is correctly set. */
+
+/* Auth Page Background */
+.gradient-custom {
+    background: linear-gradient(to bottom right, #020730, #001f3f) !important; /* Subtle dark blue gradient */
+    /* Ensure it still allows content centering via Bootstrap flex utilities */
+}
+
+/* Auth Page Enhancements */
+.auth-card {
+    background-color: #003366 !important; /* Lighter shade of blue */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3) !important;
+    padding: 3rem !important;
+    border-radius: 0.5rem; /* Optional: for rounded corners */
+}
+
+.auth-card .form-label {
+    color: #ffffff !important; /* Ensure good contrast */
+    /* font-size: 1.1rem; /* Optional: Adjust if needed */
+}
+
+.auth-card .form-control {
+    background-color: #f8f9fa !important; /* Light grey background */
+    color: #212529 !important; /* Dark text color */
+    border: 1px solid #7BB4F6 !important;
+}
+
+.auth-card .form-control:focus {
+    border-color: #A8EE87 !important; /* Brighter border on focus (green from palette) */
+    box-shadow: 0 0 0 0.2rem rgba(168, 238, 135, 0.35) !important;
+    background-color: #ffffff !important; /* Whiter background on focus */
+}
+
+.auth-card .btn-primary { /* Assuming submit buttons are btn-primary */
+    background-color: #7BB4F6 !important;
+    color: #ffffff !important;
+    border-color: #6caddf !important; /* Slightly darker border for the button */
+    padding: 0.75rem 1.25rem !important; /* Make button a bit larger */
+    font-size: 1.1rem !important;
+}
+
+.auth-card .btn-primary:hover {
+    background-color: #A8EE87 !important; /* Green from palette for hover */
+    border-color: #98d877 !important; /* Darker green for hover border */
+    color: #ffffff !important; /* White text on hover for better vibrancy */
+}
+
+/* Styling for links like "Pas encore inscrit ?" */
+.auth-card .linktocreate,
+.auth-card .linktoconnexion { /* Added a hypothetical class for "Already have an account?" link */
+    color: #f0f0f0 !important; /* Light color for better visibility on dark card */
+    font-size: 0.95rem;
+}
+
+.auth-card .linktocreate:hover,
+.auth-card .linktoconnexion:hover {
+    color: #ffffff !important;
+    text-decoration: underline !important;
+}
+
+/* Responsive adjustments for auth-card padding */
+@media (max-width: 767px) {
+    .auth-card {
+        padding: 2rem !important; /* Reduce padding on medium devices */
+    }
+}
+
+@media (max-width: 575px) {
+    .auth-card {
+        padding: 1.5rem !important; /* Further reduce padding on small devices */
+    }
+    .auth-card .form-label {
+        font-size: 0.9rem; /* Slightly smaller labels on very small screens */
+    }
+    .auth-card .form-control {
+        font-size: 0.9rem; /* Slightly smaller inputs on very small screens */
+    }
+    .auth-card .btn-primary {
+        padding: 0.6rem 1rem !important;
+        font-size: 1rem !important;
+    }
+}
