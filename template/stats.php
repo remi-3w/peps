@@ -1,24 +1,9 @@
 <?php
 include('header.php');
-// Assuming lateralNavbar.php is in the 'functions' subdirectory relative to 'template'
-// Adjust path if necessary, but 'header.php' is in the same dir as 'global_stats.php'
-// and `lateralNavbar.php` was included in `realScore.php` using
-// `include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');`
-// So, the path from 'template' directory would be 'functions/lateralNavbar.php'
 include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
 ?>
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Statistiques Globales du Tournoi</title>
-    <!-- Link to existing CSS if needed, or add new styles later -->
-    <!-- Assuming styles from header.php are sufficient for now -->
-</head>
-<body>
 
-<div class="container-md p-3 global-stats-page-container">
+<div class="col-8 container-fluid p-3 global-stats-page-container">
     <h1 class="text-white text-center my-4">Statistiques Globales du Tournoi</h1>
 
     <div class="stats-section my-5">
@@ -346,5 +331,9 @@ include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
 <?php
 // include('footer.php'); // If you have a common footer
 ?>
-</body>
-</html>
+</div>
+        </main>
+
+       </main>
+    </div>
+</div>

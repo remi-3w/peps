@@ -58,8 +58,8 @@ FROM matchs_users AS mu ORDER BY id ASC';
 
                     </li>
                     <li>
-                        <a  href="../template/profile.php" class="nav-link px-0 align-middle">
-                            <i class="fa fa-user"></i><span class="ms-1 d-none d-sm-inline">Profile</span></a>
+                        <a  href="../template/stats.php" class="nav-link px-0 align-middle">
+                            <i class="fa fa-user"></i><span class="ms-1 d-none d-sm-inline">Stats</span></a>
                     </li>
                     <li>
                         <a href="../template/functions/logout.php" class="nav-link px-0 align-middle text-danger">
@@ -92,8 +92,5 @@ FROM matchs_users AS mu ORDER BY id ASC';
                         <li><a class="dropdown-item" href="/logout.php">Sign out</a></li>
                     </ul>
                 </div>
-              
-            <!-- Note: The original file was missing closing divs for container-fluid and row.
-                 This refactoring makes the navbar self-contained as a single column div. -->
     </div>
 </div>

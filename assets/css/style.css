@@ -27,6 +27,38 @@
    padding: 0 ;
 }
 
+.lateral-navbar-column {
+  background-color: #222;
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  z-index: 100;
+}
+
+main {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.card.profile-card {
+  background-color: #333;
+  border-radius: 12px;
+  min-height: 100%;
+}
+
+.card-body.profile-card-body-custom {
+  font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .card-body.profile-card-body-custom {
+    font-size: 0.85rem;
+  }
+}
+
+
 .image-hero{
    width:auto;
    height: 30vw;
@@ -162,6 +194,7 @@ label{
 .lateralnav{
 background-color: #002148;
 color:rgba(123, 180, 246, 1);
+
 }
 .lateralnav a{
    color: rgb(239, 239, 240);   
@@ -638,7 +671,7 @@ th{
 
 /* Ensure good contrast on row hover with white text */
 .table-hover.text-white tbody tr:hover {
-    background-color: rgba(255, 255, 255, 0.15);
+    background-color: rgb(82, 43, 173);
     color: #fff;
 }
 
@@ -651,11 +684,21 @@ th{
     color: #ffffff;
 }
 
+/* Override for Bootstrap's table-danger to ensure good contrast with white text */
+.table.text-white .table-danger,
+.table.text-white tr.table-danger > th,
+.table.text-white tr.table-danger > td {
+    background-color: #e44850; /* Darker success green */
+    border-color: #5c1414;    /* Adjusted darker border */
+    color: #ffffff;
+}
+
+
 /* Override for Bootstrap's table-info to ensure good contrast with white text */
 .table.text-white .table-info,
 .table.text-white tr.table-info > th,
 .table.text-white tr.table-info > td {
-    background-color: #087990; /* Custom darker cyan/blue */
+    background-color: #1ec0e0; /* Custom darker cyan/blue */
     border-color: #05505e;
     color: #ffffff;
 }
@@ -663,7 +706,7 @@ th{
 /* Ensure hover on success/info rows maintains readability and indication */
 .table-hover.text-white tbody tr.table-success:hover > td,
 .table-hover.text-white tbody tr.table-success:hover > th {
-    background-color: #082f1c; /* Darker hover for the new success green */
+    background-color: #082f1c  !important; /* Darker hover for the new success green */
     color: #ffffff;
 }
 
@@ -901,7 +944,7 @@ th{
     */
 }
 
-.showpronoplayer-inner-content .table td:nth-child(1), /* Date column */
+.-inner-content .table td:nth-child(1), /* Date column */
 .showpronoplayer-inner-content .table th:nth-child(1) {
     /* white-space: nowrap; /* Optional: if dates should not wrap */
 }
@@ -1082,6 +1125,9 @@ th{
 
 /* Profile List Page Styles */
 .profile-list-page {
+    display: flex;
+    align-items: center;
+  
     /* General page container styles if needed */
 }
 
@@ -1179,7 +1225,7 @@ th{
        For now, assuming top:0 from sticky-top is fine (no fixed header above this row).
        If header.php's top banner IS fixed/sticky, this needs adjustment:
        top: 60px; /* Assuming 60px header height */
-       height: calc(100vh - 60px); /* Adjust height if top is offset */
+       /*height: calc(100vh); /* Adjust height if top is offset */
     */
 }
 
@@ -1190,11 +1236,7 @@ th{
 .main-content-area { /* This is the <main class="col ... main-content-area"> */
     height: 100vh; /* Make it full viewport height */
     overflow-y: auto; /* Allow its own content to scroll vertically */
-<<<<<<< HEAD
     /*margin-left: var(--navbar-width-current); /* Added this line */
-=======
-    margin-left: var(--navbar-width-current); /* Added this line */
->>>>>>> 792b9404f49b1fdd8b705bed05ff145402ac4b34
     /* If there's a fixed top header (e.g., 60px high) from header.php:
        height: calc(100vh - 60px);
     */
