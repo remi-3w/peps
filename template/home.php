@@ -137,16 +137,16 @@ if (isset($db)) { // Ensure $db is available before using it
         ?>
 
         <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
+            <?php if (isset($_SESSION['user'])): // Only show ranking if user is logged in ?>
             <div class="container-md p-3 rank-page-container">
                 <h1 class="text-white text-center">Classement</h1>
                 <?php /* if (isset($error_message)): ?>
                     <div class="alert alert-danger"><?php echo htmlspecialchars($error_message); ?></div>
                 <?php endif; */ ?>
-                <?php // The div with class "hero-ranking fontsaira" was removed to simplify, apply fontsaira to table or container if needed ?>
-                <div class="table-responsive fontsaira"> <?php // Added fontsaira here if it was important ?>
-                    <table class="table table-borderless align-middle text-white table-striped table-hover"> <?php // Removed duplicate fontsaira ?>
-                        <thead>
-                            <tr class="tablehead">
+                <div class="table-responsive fontsaira">
+                    <table class="table table-bordered align-middle text-white table-striped table-hover"> <?php // Added table-bordered ?>
+                        <thead class="thead-dark"> <?php // Added thead-dark for styling consistency ?>
+                            <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Nom</th>
                                 <th scope="col">Points</th>
@@ -177,6 +177,7 @@ if (isset($db)) { // Ensure $db is available before using it
                     </table>
                 </div>
             </div>
+            <?php endif; // End of conditional display for ranking ?>
         </main>
 
     </div><!-- /.row -->
