@@ -10,7 +10,7 @@
           <div class="card-body p-5 text-center">
             <div class="mb-md-5 mt-md-4 pb-5">
               <form id="form-login" class="col-12" action="functions/login.php" method="post">
-                <p class="text-white-50 mb-5">Connexion</p>
+                <p class="text-white mb-5">Connexion</p>
                 <div class="form-outline form-white mb-4">
                   <label for="connexion-email" class="form-label form-label-lg">Email</label>
                   <div class="input-group">

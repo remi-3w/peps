@@ -1,4 +1,18 @@
-<?php include(dirname(__FILE__) . '/header.php'); ?>
+<?php include(dirname(__FILE__) . '/header.php'); 
+
+$users_for_rank = []; // Default to empty
+if (isset($db)) { // Ensure $db is available before using it
+    $sql = 'SELECT id, username, score FROM users ORDER BY score DESC '; // Removed unused columns for this page
+    $stmt = $db->prepare($sql);
+    $stmt->execute();
+    $users_for_rank = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} else {
+    $users_for_rank = []; // Initialize $users_for_rank as empty array if $db is not available
+    // Optionally, set an error message to display
+    // $error_message = "Database connection is not available.";
+}
+
+?>
 
 <div class="page-wrapper container-fluid px-0">
     <div class="row flex-nowrap gx-0">
@@ -10,7 +24,7 @@
         }
         ?>
 
-        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
+        <main class="col pt-2 main-content <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
             <?php
             if (isset($_SESSION['user'])) { // Content for logged-in users
                 // Fetch top 3 users for the podium - only if logged in
@@ -99,29 +113,74 @@
                     </div>
                 </div> <!-- Closes .container-fluid from logged-in view -->
             </div> <!-- Closes .home-page-inner-content from logged-in view -->
-            <?php } else { // Non-logged-in view ?>
-                <div class="home-page-inner-content p-0">
-                    <div class="container-fluid vh-100 d-flex flex-column justify-content-center"> {/* Centering content */}
-                        <div class="m-auto col-12 py-3 row d-flex justify-content-evenly home-hero-section align-items-center"> {/* home-hero-section remains for existing CSS */}
-            <div class=" col-12 col-lg-6 col-xl-6 text-center">
-                <img class="image-hero img-fluid" src="../assets/img/FIFA-Womens-World-Cup-2023-Embleme.jpg" alt="FIFA Women's World Cup 2023 Logo">
-            </div>
-            <div class="col-12 col-lg-6 col-xl-6 hero-text p-4 rounded">
-                <div class="row d-flex justify-content-center">
-                <h2 class="h2 fw-bold fontsaira ">Pari entre potes</h2>
-                <p class="col-lg-10 col-xl-10 mx-auto text-hero fontsaira"> <b>Aligne</b> les scores de tous les matchs du tournoi et <b>hisse</b> toi à la meilleure place du classement</p>
-                <i class="col-auto far fa-futbol fa-spin fa-3x d-block mx-auto my-3"></i>
-            </div>
-        </div>
-        <div class="py-5 col-12 d-flex justify-content-center">
-            <div class="col-md-4 col-sm-6 col-8 d-flex justify-content-center subs-button-container">
-                <a class="btn btn-outline-warning btn-lg fontSaira subs w-100" href="/template/subscribe.php" role="button">S'inscrire</a>
-            </div>
-        </div>
-                    </div>
-                </div>
+            <?php } else {
+                
+                // Non-logged-in view ?>
+                <div class="hero-banner d-flex align-items-center justify-content-center text-center text-white">
+  <div class="hero-content px-4">
+    <h1 class="display-4 fw-bold">⚽ Qui aura le flair du champion ?</h1>
+    <p class="lead">Prédit les scores, défie tes amis et grimpe au sommet du classement. À toi de jouer !</p>
+    <a href="/template/subscribe.php" class="btn btn-warning btn-lg mt-3">Commencer le tournoi</a>
+  </div>
+</div>
             </div>
             <?php } ?>
+
+        <div class="page-wrapper container-fluid px-0">
+    <div class="row flex-nowrap gx-0">
+
+        <?php
+        // Sidebar column (conditionally included)
+        if (isset($_SESSION['user'])) {
+            include_once(dirname(__FILE__) . '/functions/lateralNavbar.php');
+        }
+        ?>
+
+        <main class="col pt-2 main-content-area <?php if (isset($_SESSION['user'])) { echo 'main-content-area-with-sidebar ps-md-2'; } ?>">
+            <div class="container-md p-3 rank-page-container">
+                <h1 class="text-white text-center">Classement</h1>
+                <?php /* if (isset($error_message)): ?>
+                    <div class="alert alert-danger"><?php echo htmlspecialchars($error_message); ?></div>
+                <?php endif; */ ?>
+                <?php // The div with class "hero-ranking fontsaira" was removed to simplify, apply fontsaira to table or container if needed ?>
+                <div class="table-responsive fontsaira"> <?php // Added fontsaira here if it was important ?>
+                    <table class="table table-borderless align-middle text-white table-striped table-hover"> <?php // Removed duplicate fontsaira ?>
+                        <thead>
+                            <tr class="tablehead">
+                                <th scope="col">#</th>
+                                <th scope="col">Nom</th>
+                                <th scope="col">Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (!empty($users_for_rank)) {
+                                $i = 1;
+                                foreach ($users_for_rank as $user_rank_item) {
+                            ?>
+                                <tr>
+                                    <th scope="row"><?php echo $i++; ?></th>
+                                    <td>
+                                        <a href="/template/showpronoplayer.php?ID=<?php echo $user_rank_item['id'];?>"><?php echo htmlspecialchars($user_rank_item['username']);?></a>
+                                    </td>
+                                    <td>
+                                        <?php echo htmlspecialchars($user_rank_item['score']); ?>
+                                    </td>
+                                </tr>
+                            <?php
+                                } // end foreach
+                            } else { // if $users_for_rank is empty
+                                echo '<tr><td colspan="3" class="text-center">Aucun utilisateur trouvé ou erreur de base de données.</td></tr>';
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+    </div><!-- /.row -->
+</div><!-- /.page-wrapper -->
         </main>
 
     </div><!-- /.row -->

@@ -26,6 +26,65 @@
    margin: 0;
    padding: 0 ;
 }
+.hero-banner {
+    background: url('/assets/img/stade.png') center center / cover no-repeat;
+    height: 100vh;
+    position: relative;
+}
+.hero-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+   background-image: linear-gradient(180deg, rgba(2, 7, 48, 0.86) 31%, rgba(2, 7, 3, 0.2) 60%);
+    z-index: 1;
+}
+.hero-content {
+    position: relative;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: 0.3s;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.herohome {
+    background-image: url("/assets/img/stade.jpg");
+
+   background-repeat: no-repeat;  
+  position: relative;
+  /*min-height: 100vh;*/
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-text{
+   background: rgba(123, 180, 246, 1);
+   color: rgb(249, 250, 255); 
+   height:auto;
+   /* width: 100%;   */   
+   font-size: 20px;   
+}
+
+.herohome::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.5);
+}
+
+.herohome-content {
+  position: relative;
+  z-index: 100000;
+}
+
 
 .lateral-navbar-column {
   background-color: #222;
@@ -70,7 +129,7 @@ main {
 }
 
 .card-body{
-   font-size: 6vw;
+   font-size: 2vw;
 }
 .chat{   
    height: 650px;
@@ -229,7 +288,7 @@ color:rgba(123, 180, 246, 1);
    width: 800px;
 }
 .form-control-lg::placeholder{
-    color:#E87575;
+    color:#e9d5d5;
     font-style: italic;
 }
 
